@@ -1,0 +1,67 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        
+        <div id="menu">
+            <div id="pizza" class="menu-category">
+                <h2 onclick="openCategory('#pizza','#pizza-items')">Pizzas<ion-icon name="caret-down"></ion-icon></h2>
+                <div class="item-div" id="pizza-items">
+                    <div class="item">
+                        <h3 class="item-title">H.U.B. Pizza</h3>
+                        <p class="item-desc">Our signature pizza, with Ham, Uranium, and Bacon.</p>
+                        <p class="item-price">$99.99</p>
+                        <button type="button" class="add-cart">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <h3 class="item-title">Joel's Pizza</h3>
+                        <p class="item-desc">Joel's specialty, topped with Fasnachts.</p>
+                        <p class="item-price">$12.99</p>
+                        <button type="button" class="add-cart">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <h3 class="item-title">Manon's Pizza</h3>
+                        <p class="item-desc">Manon's specialty, with a layer of buffalo chicken inside the crust. Topped with cheese.</p>
+                        <p class="item-price">$19.99</p>
+                        <button type="button" class="add-cart">Add to Cart</button>
+                    </div>
+                    <div class="item">
+                        <h3 class="item-title">Saif's Special</h3>
+                        <p class="item-desc">Special pizza with aged, hardened milk, and an iPhone 10.</p>
+                        <p class="item-price">$999,999.99</p>
+                        <button type="button" class="add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div id="subs" class="menu-category">
+                <h2 onclick="openCategory('#subs','#sub-items')">Subs<ion-icon name="caret-down"></ion-icon></h2>
+                <div class="item-div" id="sub-items">
+                    <div class="item">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="sides" class="menu-category">
+                <h2 onclick="openCategory('#sides','#side-items')">Sides<ion-icon name="caret-down"></ion-icon></h2>
+                <div class="item-div" id="side-items">
+                    sides
+                </div>
+            </div>
+            <div id="desserts" class="menu-category">
+                <h2 onclick="openCategory('#desserts','#dessert-items')">Desserts<ion-icon name="caret-down"></ion-icon></h2>
+                <div class="item-div" id="dessert-items">
+                    desserts
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="pizzahub.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+</html>
