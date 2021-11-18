@@ -33,3 +33,17 @@ ion-icon {
     display: block;
     margin: 10px 0px;
 }
+#home-body{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/Pizza-Background.jpg"); 
+    background-size: cover;
+    max-height: 100vh;
+}
+
+#logo-container{
+    width: 40%;
+    height: 25%;
+}
+#logo{
+    width: 40%;
+    height: 25%;
+}
