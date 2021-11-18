@@ -94,7 +94,7 @@ input[type='submit'], label {
 }
 #menu {
     width: 50%;
-    margin: -25px auto 0px auto
+    margin: -25px auto 0px auto;
 }
 .menu-category {
     overflow: hidden;
@@ -128,6 +128,7 @@ input[type='submit'], label {
     font-size: 15px;
     display: block;
     margin: 10px 0px;
+    border-radius: 10px;
 }
 #home-body{
     max-height: 100vh;
