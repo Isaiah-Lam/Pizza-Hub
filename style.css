@@ -6,6 +6,38 @@
 html {
     overflow-y:scroll;
 }
+.login-head, .signup-head {
+    display: block;
+    width: 100vw;
+    text-align: right;
+    padding-right: 7.5rem;
+}
+.login-anotherdiv, .signup-anotherdiv {
+    display: flex;
+    justify-content: flex-end;
+
+}
+.login-info, .signup-info{
+    width: 300px;
+    border: 5px solid #808080;
+    padding: 20px;
+    margin: 20px;
+    max-height: 25%;
+    border-radius: 12%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px #ffa31a, -1em 0 .4em #808080;
+}
+label {
+    display: block;
+    font: .9rem;
+}
+input[type='submit'], label {
+    margin-top: 1rem;
+}
+.login-divider, .signup-divider {
+    padding-right: 1.25rem;
+}
 #menu {
     width: 50%;
     margin: -50px 100px;
