@@ -8,59 +8,71 @@
     <title>Pizza Hub Log In</title>
 </head>
 <body id="home-body">
+
+    <section class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a class="active" href="#menu">Menu</a>
+        <a class="active" href="#contact">Contact</a>
+        <a class="active" href="#about">About</a>
+        <a class="active" href="#">Sign In</a>
+    </section>
+
+
     <div class="logo-container">  
         <img src="links&images/home-logo.png" class="logo" alt=""> 
     </div>
-    <section class="login">
-        <div class="login-head">
-            <div class="login-divider">
-                <h1>Log In</h1>
+    <div class="login-and-signup">
+        <section class="login">
+            <div class="login-head">
+                <div class="login-divider">
+                    <h1>Log In</h1>
+                </div>
+                <button class="btn-login">Don't have an account?</button>
             </div>
-            <button>We'll figure this out</button>
-        </div>
-        <div class="login-anotherdiv">
-            <form class="login-info">
-                <div class="login-username">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
-                </div>
-                <div class="login-pw">
-                    <label for="pass">Password (8 characters minimum):</label>
-                    <input type="password" id="pass" name="password" minlength="8" required>
-                </div>
-                <input type="submit" value="Sign in">
-            </form>
-        </div>
-    </section>
-    <section class="signup">
-        <div class="signup-head">
-            <div class="signup-divider">
-                <h1> Sign up</h1>
+            <div class="login-anotherdiv">
+                <form class="login-info">
+                    <div class="login-username">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="login-pw">
+                        <label for="pass">Password:</label>
+                        <input type="password" id="pass" name="password" minlength="8" required>
+                    </div>
+                    <input class="btn-login" type="submit" value="Sign in">
+                </form>
             </div>
-            <button>We'll figure this out</button>
-        </div>
-        <div class="signup-anotherdiv">
-            <form class="signup-info">
-                <div class="signup-name">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username">
+        </section>
+        <section class="signup">
+            <div class="signup-head">
+                <div class="signup-divider">
+                    <h1> Sign up</h1>
                 </div>
-                <div class="signup-name">
-                    <label for="username">Email:</label>
-                    <input type="text" id="email" name="email">
-                </div>
-                <div class="signup-pw">
-                    <label for="pass">Password (8 characters minimum):</label>
-                    <input type="password" id="pass" name="password" minlength="8" required>
-                </div>
-                <div class="signup-pw">
-                    <label for="pass">Confirm Password:</label>
-                    <input type="password" id="pass" name="password" minlength="8" required>
-                </div>
-                <input type="submit" value="Create Account">
-                <p>Welcome!</p>
-            </form>
-        </div>
-    </section>
+                <button class="btn-signup">Already have an account?</button>
+            </div>
+            <div class="signup-anotherdiv">
+                <form class="signup-info">
+                    <div class="signup-name">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="signup-name">
+                        <label for="username">Email:</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div class="signup-pw">
+                        <label for="pass">Password (8 characters minimum):</label>
+                        <input type="password" id="pass" name="password" minlength="8" required>
+                    </div>
+                    <div class="signup-pw">
+                        <label for="pass">Confirm Password:</label>
+                        <input type="password" id="pass" name="password" minlength="8" required>
+                    </div>
+                    <input class="btn-signup" type="submit" value="Create Account">
+                    <p>Welcome!</p>
+                </form>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
