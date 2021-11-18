@@ -1,10 +1,11 @@
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-  }
-
+}
+html {
+    overflow-y:scroll;
+}
 .login-head, .signup-head {
     display: block;
     width: 100vw;
@@ -31,32 +32,34 @@ label {
     display: block;
     font: .9rem;
 }
-input[type='submit'],
-label {
+input[type='submit'], label {
     margin-top: 1rem;
 }
 .login-divider, .signup-divider {
     padding-right: 1.25rem;
 }
 #menu {
-    width: 80%;
-    margin: 25px auto;
+    width: 50%;
+    margin: -50px 100px;
+    float: right;
 }
 .menu-category {
     overflow: hidden;
     border: 1px solid black;
     width: 100%;
+    background-color: #b4b4b4;
     height: fit-content;
-    padding: 15px;
+    padding: 30px 0px 30px 30px;
 }
 .item-div {
     display: none;
+    border-top: 1px solid rgb(255, 163, 26);
 }
 .item {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(255, 163, 26);
+    padding: 15px 0px;
 }
-ion-icon {
+.ion-icon {
     font-size: large;
     line-height: 50%;
     margin-bottom: -3px;
@@ -74,11 +77,13 @@ ion-icon {
     margin: 10px 0px;
 }
 #home-body{
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/Pizza-Background.jpg"); 
-    background-size: cover;
     max-height: 100vh;
 }
-
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/Pizza-Background.jpg"); 
+    background-size: cover;
+    background-position: fixed;
+}
 #logo-container{
     width: 40%;
     height: 25%;
@@ -86,4 +91,7 @@ ion-icon {
 #logo{
     width: 40%;
     height: 25%;
+}
+.category-title {
+    width: fit-content;
 }
