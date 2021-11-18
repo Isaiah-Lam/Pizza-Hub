@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -36,4 +37,53 @@ label {
 }
 .login-divider, .signup-divider {
     padding-right: 1.25rem;
+}
+#menu {
+    width: 80%;
+    margin: 25px auto;
+}
+.menu-category {
+    overflow: hidden;
+    border: 1px solid black;
+    width: 100%;
+    height: fit-content;
+    padding: 15px;
+}
+.item-div {
+    display: none;
+}
+.item {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+ion-icon {
+    font-size: large;
+    line-height: 50%;
+    margin-bottom: -3px;
+    margin-left: 3px;
+}
+.item-desc, .item-price {
+    display: inline;
+}
+.add-cart {
+    padding: 10px;
+    background-color: rgb(0, 214, 0);
+    color: white;
+    font-size: 15px;
+    display: block;
+    margin: 10px 0px;
+}
+#home-body{
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/Pizza-Background.jpg"); 
+    background-size: cover;
+    max-height: 100vh;
+}
+
+#logo-container{
+    width: 40%;
+    height: 25%;
+}
+#logo{
+    width: 40%;
+    height: 25%;
 }
