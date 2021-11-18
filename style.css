@@ -35,6 +35,7 @@ html {
 .login-and-signup {
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 .login-head, .signup-head {
     display: block;
@@ -94,7 +95,7 @@ input[type='submit'], label {
 }
 #menu {
     width: 50%;
-    margin: -25px auto 0px auto;
+    margin: -25px auto 20px auto;
 }
 .menu-category {
     overflow: hidden;
