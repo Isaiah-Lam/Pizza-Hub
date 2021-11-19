@@ -88,17 +88,20 @@ body {
     background-size: cover;
     background-position: fixed;
 }
-#logo-container{
+.logo-container{
     width: 100%;
     height: 25%;
     text-align: right;
 }
 
-#logo{
-    width: 25%;
-    height: 25%;
+.logo{
+    max-width: 300px;
+    height: auto; 
 }
 .category-title {
     width: fit-content;
 }
 
+#manager-special{
+    background-color: #808080;
+}
