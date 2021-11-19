@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Pizza Hub Log In</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <title>Pizza Hub Log In</title>
+   
 </head>
 
 <body>
@@ -23,15 +24,16 @@
     <div class="logo-container">  
         <img src="links&images/home-logo.png" class="logo" alt=""> 
     </div>
+
     <div class="login-and-signup">
         <section class="login">
             <div class="login-head">
                 <div class="login-divider">
                     <h1>Log In</h1>
                 </div>
-                <button class="btn-login">Don't have an account?</button>
+                <button onclick="myFunction()" class="btn-login">Already have an account?</button>
             </div>
-            <div class="login-anotherdiv">
+            <div id="myDiv1" class="login-anotherdiv">
                 <form class="login-info">
                     <div class="login-username">
                         <label for="login-username">Username:</label>
@@ -50,9 +52,9 @@
                 <div class="signup-divider">
                     <h1> Sign up</h1>
                 </div>
-                <button class="btn-signup">Already have an account?</button>
+                <button onclick="myFunction1()" class="btn-signup">Don't have an account?</button>
             </div>
-            <div class="signup-anotherdiv">
+            <div id="myDiv2" class="signup-anotherdiv">
                 <form class="signup-info">
                     <div class="signup-name">
                         <label for="username">Username:</label>
@@ -76,6 +78,7 @@
             </div>
         </section>
     </div>
+    <script src="pizzahub.js"></script>
 </body>
 
     <script src="pizzahub.js"></script>

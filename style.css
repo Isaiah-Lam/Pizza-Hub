@@ -116,6 +116,9 @@ input[type='submit'], label {
 .login-anotherdiv, .signup-anotherdiv{
     text-align: left;
 }
+.signup-anotherdiv, .btn-login {
+    display: none;
+}
 .signup-info p {
     text-align: center;
     color: white;
