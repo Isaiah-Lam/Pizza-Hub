@@ -7,7 +7,9 @@ html {
     overflow-y:scroll;
 }
 .topnav {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     background-color: rgba(0,0,0,0.3);
     padding: 1rem 0 1rem 0;
@@ -16,19 +18,28 @@ html {
     width: 100vw;
     height: 50px;
 }
-.active {
-    padding: 3rem;
+.quick-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%
+}
+
+.active{
+    display: flex;
+    padding: 0 ;
+    align-items: center;
+    margin: 0 5%;
+    height: 50px;
     color: white;
     text-decoration: none;
 }
-.topnav a {
-    padding: 14px 16px;
-    font-size: 17px;
-}
-.topnav a:hover {
+
+.active:hover {
     background-color: #ffa31a;
     color: black;
 }
+
 .login, .signup {
     text-align: center;
 }
@@ -52,8 +63,25 @@ html {
     justify-content: center;
     align-items: center;
 }
+.cart-button{
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+    color: white;
+    transition: .3s;
+
+}
+.cart-icon{
+    width: 30px;
+    height: 20px;
+}
+.cart-icon:hover{
+    color:#ffa31a; 
+    transition: .3s;
+}
 .login-username, .login-pw, .signup-name, .signup-pw {
     color: white;
+
 }
 label {
     display: block;
