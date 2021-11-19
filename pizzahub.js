@@ -1,3 +1,5 @@
+localStorage.clear();
+
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
         $(id).css("overflow", "hidden");
@@ -45,13 +47,28 @@ function logIn() {
     let username = $("#login-username").val() + "";
     let password = $("#login-pass").val() + "";
     if (username == "Manager" && password == "PizzaHub420") {
-        //redirect to home page
+        window.open('index.html');
+        localStorage.setItem("currentUser") = "Manager";
+        setUpManagerPages();
     }
     else if (localStorage.getItem(username) == password) {
-        // redirect to home page
+        window.open('index.html');
+        localStorage.setItem("currentUser") = username;
+        // call function setUpCustomerPages()
     }
     else {
         alert("Incorrect username or password");
 
     }
 }
+
+function setUpManagerPages() {
+    $(".editor-btn").each(function() {
+        $(this).css("display", "block");
+    })
+}
+
+// function openMenu() {
+//     window.open('menu.html', '_self');
+//     setUpManagerPages();
+// }
