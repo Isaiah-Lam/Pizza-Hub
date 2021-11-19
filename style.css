@@ -94,7 +94,7 @@ input[type='submit'], label {
     padding-top: .5rem;
 }
 #menu {
-    width: 50%;
+    width: 60%;
     margin: -25px auto 20px auto;
 }
 .menu-category {
@@ -166,4 +166,31 @@ body {
     margin: -75px auto 30px auto;
     clear: both;
     border: 2px solid black;
+}
+.editor-btn {
+    width: 150px;
+    height: 25px;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: none;
+}
+.add-item {
+    background-color: green;
+}
+.set-special {
+    background-color: goldenrod;
+}
+.delete-item {
+    background-color: maroon;
+}
+.change-price {
+    background-color: darkgreen;
+}
+.change-name {
+    background-color: darkblue;
+}
+.change-description {
+    background-color: purple;
 }
