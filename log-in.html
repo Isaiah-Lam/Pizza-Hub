@@ -32,14 +32,14 @@
             <div class="login-anotherdiv">
                 <form class="login-info">
                     <div class="login-username">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" name="username">
                     </div>
                     <div class="login-pw">
-                        <label for="pass">Password:</label>
-                        <input type="password" id="pass" name="password" minlength="8" required>
+                        <label for="login-pass">Password:</label>
+                        <input type="password" id="login-pass" name="password" minlength="8" required>
                     </div>
-                    <input class="btn-login" type="submit" value="Sign in">
+                    <input class="btn-login" type="submit" value="Sign in" onclick="logIn()">
                 </form>
             </div>
         </section>
@@ -54,25 +54,30 @@
                 <form class="signup-info">
                     <div class="signup-name">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" name="username">
+                        <input type="text" id="username" name="username" required>
                     </div>
                     <div class="signup-name">
                         <label for="username">Email:</label>
-                        <input type="text" id="email" name="email">
+                        <input type="text" id="email" name="email" required>
                     </div>
                     <div class="signup-pw">
                         <label for="pass">Password (8 characters minimum):</label>
                         <input type="password" id="pass" name="password" minlength="8" required>
                     </div>
                     <div class="signup-pw">
-                        <label for="pass">Confirm Password:</label>
-                        <input type="password" id="pass" name="password" minlength="8" required>
+                        <label for="confirm-pass">Confirm Password:</label>
+                        <input type="password" id="confirm-pass" name="confirm-password" minlength="8" required>
                     </div>
-                    <input class="btn-signup" type="submit" value="Create Account">
+                    <input class="btn-signup" type="submit" value="Create Account" onclick="signUp()">
                     <p>Welcome!</p>
                 </form>
             </div>
         </section>
     </div>
 </body>
+
+    <script src="pizzahub.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
 </html>
