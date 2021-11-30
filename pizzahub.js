@@ -37,7 +37,6 @@ function myFunction() {
     let x = document.getElementById("myDiv1");
     if (x.style.display === "none") {
       x.style.display = "block";
-    }
     else {
       x.style.display = "none";
 
@@ -97,6 +96,10 @@ function setUpManagerPages() {
     });
 }
 
+
+function openMenu() {
+    window.open('menu.html', '_self');
+    setUpManagerPages();
 function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");
