@@ -20,21 +20,26 @@
         <a class="active" href="#contact">Contact</a>
         <a class="active" href="#about">About</a>
         <a class="active" href="log-in.html">Sign In</a>
+        <a class="cart-button" href=""><ion-icon class="cart-icon" name="cart"></ion-icon></a>
     </section>
-
+    
     <div class="logo-container">  
         <img src="links&images/home-logo.png" class="logo" alt=""> 
     </div>
 
+    <div class="tab">
+        <div class="spaceButtons">
+            <button class="tablinks btn-login1" onclick="openLoginPage(event, 'myDiv1')">Log In</button>
+        </div>
+        <div class="spaceButtons1">
+            <button class="tablinks btn-signup1" onclick="openLoginPage(event, 'myDiv2')">Create an account</button>
+        </div>
+    </div>
+
     <div class="login-and-signup">
+
         <section class="login">
-            <div class="login-head">
-                <div class="login-divider">
-                    <h1>Log In</h1>
-                </div>
-                <button onclick="myFunction()" class="btn-login">Already have an account?</button>
-            </div>
-            <div id="myDiv1" class="login-anotherdiv">
+            <div id="myDiv1" class="login-anotherdiv tabcontent">
                 <form class="login-info">
                     <div class="login-username">
                         <label for="login-username">Username:</label>
@@ -44,18 +49,13 @@
                         <label for="login-pass">Password:</label>
                         <input type="password" id="login-pass" name="password" minlength="8" required>
                     </div>
-                    <input class="btn-login" type="submit" value="Sign in" onclick="logIn()">
+                    <input class="btn-login1" type="submit" value="Sign in" onclick="logIn()">
                 </form>
             </div>
         </section>
+
         <section class="signup">
-            <div class="signup-head">
-                <div class="signup-divider">
-                    <h1> Sign up</h1>
-                </div>
-                <button onclick="myFunction1()" class="btn-signup">Don't have an account?</button>
-            </div>
-            <div id="myDiv2" class="signup-anotherdiv">
+            <div id="myDiv2" class="signup-anotherdiv tabcontent">
                 <form class="signup-info">
                     <div class="signup-name">
                         <label for="username">Username:</label>
@@ -73,11 +73,12 @@
                         <label for="confirm-pass">Confirm Password:</label>
                         <input type="password" id="confirm-pass" name="confirm-password" minlength="8" required>
                     </div>
-                    <input class="btn-signup" type="submit" value="Create Account" onclick="signUp()">
+                    <input class="btn-signup1" type="submit" value="Create Account" onclick="signUp()">
                     <p>Welcome!</p>
                 </form>
             </div>
         </section>
+
     </div>
     
 </body>

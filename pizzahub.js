@@ -19,6 +19,20 @@ function openCategory(id, items) {
 }
 
 
+function openLoginPage(evt, loginPage) {
+    
+    var i, tabcontent, tablinks;
+  
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+
 function myFunction() {
     let x = document.getElementById("myDiv1");
     if (x.style.display === "none") {
@@ -26,7 +40,11 @@ function myFunction() {
     }
     else {
       x.style.display = "none";
+
     }
+  
+    document.getElementById(loginPage).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 function myFunction1() {
@@ -38,6 +56,7 @@ function myFunction1() {
       y.style.display = "none";
     }
 }
+
 
 function signUp() {
     let username = $("#username").val() + "";
