@@ -11,21 +11,52 @@ function openCategory(id, items) {
     }
 }
 
-
-function myFunction() {
-    let x = document.getElementById("myDiv1");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
+function openLoginPage(evt, loginPage) {
+    
+    var i, tabcontent, tablinks;
+  
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
     }
+  
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    document.getElementById(loginPage).style.display = "block";
+    evt.currentTarget.className += " active";
 }
-function myFunction1() {
-    let y = document.getElementById("myDiv2");
-    if (y.style.display === "none") {
-      y.style.display = "block";
-    } else {
-      y.style.display = "none";
+
+
+
+
+
+// function myFunction() {
+//     let x = document.getElementById("myDiv1");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
+// }
+// function myFunction1() {
+//     let y = document.getElementById("myDiv2");
+//     if (y.style.display === "none") {
+//       y.style.display = "block";
+//     } else {
+//       y.style.display = "none";
+//     }
+// }
+
+// function myFunction2(){
+//     if (myFunction = "none") {
+//         myFunction1 = "block";
+//     } else {
+//         myFunction1 = "none"
+//     }
+// }
 
 function signUp() {
     let username = $("#username").val() + "";

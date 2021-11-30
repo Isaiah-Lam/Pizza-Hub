@@ -3,34 +3,40 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     overflow-y:scroll;
 }
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/double-background.png"); 
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+}
+
+/* this section is for the login */
+
 .topnav {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: rgba(0,0,0,0.3);
-    padding: 1rem 0 1rem 0;
+    padding: 0.2rem 0 0.2rem 0;
     margin-bottom: 0.5rem;
     position: fixed;
     width: 100vw;
     height: 50px;
-}
-.quick-links{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 50%
+    font-size: 18px;
 }
 
-.active{
+.active {
     display: flex;
-    padding: 0 ;
+    padding: .5rem;
     align-items: center;
-    margin: 0 5%;
-    height: 50px;
+    margin: 0 10px 0 10px;
+    height: 100%;
     color: white;
     text-decoration: none;
 }
@@ -40,19 +46,62 @@ html {
     color: black;
 }
 
-.login, .signup {
-    text-align: center;
+.cart-button {
+    position: absolute;
+    right: 0;
+    margin-right: 5%;
+    color: white;
+    transition: .3s;
 }
+
+.cart-icon {
+    width: 30px;
+    height: 20px;
+}
+
+.cart-icon:hover {
+    color:#ffa31a; 
+    transition: .3s;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+    border: 1px solid #ffa31a;
+    background-color: rgba(0,0,0,0.3);
+    margin: 2rem auto;
+    padding: 10px 40px;
+    width: fit-content;
+}
+
+.spaceButtons {
+    max-width: 100%;
+    padding-right:0rem;
+}
+
+.spaceButtons1 {
+    max-width: 100%;
+    padding-left: 2rem;
+}
+
 .login-and-signup {
     display: flex;
     justify-content: center;
     height: 100vh;
 }
-.login-head, .signup-head {
-    display: block;
-    justify-content: flex-end;
+
+.tabcontent {
+    animation: fadeEffect .5s;
 }
-.login-info, .signup-info{
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.login-info, .signup-info {
     width: 300px;
     border: 5px solid #ffa31a;
     background-color: #808080;
@@ -63,31 +112,17 @@ html {
     justify-content: center;
     align-items: center;
 }
-.cart-button{
-    position: absolute;
-    right: 0;
-    margin-right: 5%;
-    color: white;
-    transition: .3s;
 
-}
-.cart-icon{
-    width: 30px;
-    height: 20px;
-}
-.cart-icon:hover{
-    color:#ffa31a; 
-    transition: .3s;
-}
 .login-username, .login-pw, .signup-name, .signup-pw {
     color: white;
-
 }
+
 label {
     display: block;
     font: .9rem;
 }
-.btn-login, .btn-signup {
+
+.btn-login1, .btn-signup1 {
     padding: 10px;
     background-color: #292929;
     color: #ffa31a;
@@ -96,38 +131,43 @@ label {
     transition: 0.25s;
     border-radius: 12.5px;
 }
-.btn-login:hover, .btn-signup:hover {
+
+.btn-login1:hover, .btn-signup1:hover {
     background-color: #ffa31a;
     color: black;
     transition: 0.25s;
 }
+
 input {
     width: 100%;
     margin: 0 auto;
 }
+
 input[type='submit'], label {
     margin-top: 1rem;
 }
-.login-divider, .signup-divider {
-    padding-left: 1.25rem;
-    color: white;
-    text-align: center;
-}
+
 .login-anotherdiv, .signup-anotherdiv{
     text-align: left;
 }
-.signup-anotherdiv, .btn-login {
+
+.signup-anotherdiv {
     display: none;
 }
-.signup-info p {
-    text-align: center;
+
+.signup p {
+    align-items: center;
+    padding-left: 40%;
     color: white;
-    padding-top: .5rem;
 }
+
+/* this section is for the menu */
+
 #menu {
     width: 60%;
     margin: -25px auto 20px auto;
 }
+
 .menu-category {
     overflow: hidden;
     border: 1px solid black;
@@ -136,23 +176,28 @@ input[type='submit'], label {
     height: fit-content;
     padding: 30px 0px 30px 30px;
 }
+
 .item-div {
     display: none;
     border-top: 2px solid rgb(255, 163, 26);
 }
+
 .item {
     border-bottom: 2px solid rgb(255, 163, 26);
     padding: 15px 0px;
 }
+
 .ion-icon {
     font-size: large;
     line-height: 50%;
     margin-bottom: -3px;
     margin-left: 3px;
 }
+
 .item-desc, .item-price {
     display: inline;
 }
+
 .add-cart {
     padding: 10px;
     background-color: rgb(0, 214, 0);
@@ -162,35 +207,34 @@ input[type='submit'], label {
     margin: 10px 0px;
     border-radius: 10px;
 }
-#home-body{
+
+#home-body {
     max-height: 100vh;
 }
-body {
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("links&images/double-background.png"); 
-    background-size: cover;
-    background-position: fixed;
-    background-repeat: no-repeat;
-}
-.logo-container{
+
+.logo-container {
     width: 100%;
     height: 25%;
     text-align: left;
 }
 
-.logo{
+.logo {
     width: 300px;
     height: auto;
     margin: 55px 0 0 16px;
     border-radius: 9px;
 }
+
 .category-title {
     padding-bottom: 10px;
 }
+
 .menu-pic {
     height: 50px;
     width: auto;
     margin: 0px 0px -15px 5px;
-}
+} 
+
 #menu-title {
     background-color: #b4b4b4;
     width: fit-content;
@@ -198,6 +242,7 @@ body {
     clear: both;
     border: 2px solid black;
 }
+
 .editor-btn {
     width: 150px;
     height: 25px;
@@ -207,21 +252,27 @@ body {
     border: 1px solid black;
     display: none;
 }
+
 .add-item {
     background-color: green;
 }
+
 .set-special {
     background-color: goldenrod;
 }
+
 .delete-item {
     background-color: maroon;
 }
+
 .change-price {
     background-color: darkgreen;
 }
+
 .change-name {
     background-color: darkblue;
 }
+
 .change-description {
     background-color: purple;
 }
