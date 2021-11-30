@@ -116,7 +116,7 @@ input[type='submit'], label {
 .login-anotherdiv, .signup-anotherdiv{
     text-align: left;
 }
-.signup-anotherdiv, .btn-login {
+.signup-anotherdiv {
     display: none;
 }
 .signup-info p {
