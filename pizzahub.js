@@ -1,11 +1,54 @@
-$(document).ready(function() {
+$(document).ready(function(){
+    
     if (localStorage.getItem("currentUser") == "Manager") {
         setUpManagerPages();
     }
     else {
         setUpCustomerPages();
     }
+
+    refreshButtons()
 })
+
+
+function refreshButtons(){
+    $(".change-price").click(function () {
+        let newPrice = Number(prompt("New item Price."))
+        $(this).parent().parent().find(".item-price").text("$" + newPrice)
+    })
+    $(".change-name").click(function(){
+        let newName = prompt("Enter this item's new name:")
+        $(this).parent().parent().find(".item-title").text(newName)
+    })
+    $(".change-description").click(function(){
+        let newDesc = prompt("Enter this item's new description:")
+        $(this).parent().parent().find(".item-desc").text(newDesc)
+    })
+    $(".delete-item").click(function () {
+        console.log("it worked")
+        if(window.confirm("Are you sure?")){
+            $(this).parent().parent().remove()
+        }
+        
+    })
+    }
+
+let newItemButton = document.querySelectorAll("add-item")
+for(e of newItemButton){
+    e.addEventListener('click', addNewItem())
+}
+
+function addNewItem(id){
+    let newItemTitle = prompt("Enter the new item name:")
+    let newItemPrice = Number(prompt("Enter new item price:"))
+    let newItemDescription = prompt("Enter this item's description:")
+    console.log("clicks working")
+    let template = $("#item-template").clone()
+    refreshButtons();
+}
+
+
+appendTo(id)
 
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
@@ -16,6 +59,8 @@ function openCategory(id, items) {
         $(id).css("overflow", "initial");
         $(items).slideDown(500);
     }
+    
+    
 }
 
 
@@ -31,17 +76,18 @@ function openLoginPage(evt, loginPage) {
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
-
+    }
+}
 
 function myFunction() {
     let x = document.getElementById("myDiv1");
     if (x.style.display === "none") {
       x.style.display = "block";
+    }
     else {
       x.style.display = "none";
-
     }
-  
+
     document.getElementById(loginPage).style.display = "block";
     evt.currentTarget.className += " active";
 }
@@ -96,12 +142,3 @@ function setUpManagerPages() {
     });
 }
 
-
-function openMenu() {
-    window.open('menu.html', '_self');
-    setUpManagerPages();
-function setUpCustomerPages() {
-    $(".editor-btn").each(function() {
-        $(this).css("display", "none");
-    });
-}
