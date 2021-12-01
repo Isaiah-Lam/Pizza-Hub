@@ -1,4 +1,7 @@
+var cartItems;
+
 $(document).ready(function() {
+    $("#cart-div").hide();
     if (localStorage.getItem("currentUser") == "Manager") {
         setUpManagerPages();
         $("#sign-out-btn").css("display", "flex");
@@ -6,6 +9,7 @@ $(document).ready(function() {
     }
     else {
         setUpCustomerPages();
+        cartItems = localStorage.getItem("cartItems");
         if (localStorage.getItem("currentUser") == "") {
             $("#sign-out-btn").css("display", "none");
             $("#sign-in-btn").css("display", "flex");
@@ -15,6 +19,12 @@ $(document).ready(function() {
             $("#sign-in-btn").css("display", "none");
         }
     }
+
+    $(".add-cart").click(function () {
+        var children = $(this).parent().children(".cart-info").clone();
+        children.appendTo($("#cart-div"));
+    })
+
 })
 
 function openCategory(id, items) {
@@ -96,4 +106,13 @@ function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");
     });
+}
+
+function openCart() {
+    if ($("#cart-div").css("display") == "flex") {
+        $("#cart-div").css("display", "none");
+    }
+    else {
+        $("#cart-div").css("display", "flex");  
+    }
 }
