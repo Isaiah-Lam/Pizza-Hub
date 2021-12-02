@@ -15,8 +15,7 @@ body {
     background-repeat: no-repeat;
 }
 
-#cart-div {
-    display: flex;
+#cart-container {
     z-index: 10;
     background-color: white;
     width: 75vw;
@@ -27,6 +26,11 @@ body {
     right: 0;
     margin: auto;
     color: black;
+    
+}
+
+.cart-item {
+    border-top: 1px solid gray;
 }
 
 /* this section is for the login */

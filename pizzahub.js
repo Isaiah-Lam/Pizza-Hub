@@ -1,16 +1,24 @@
+// localStorage.clear();
+
 var cartItems;
 
 $(document).ready(function() {
-    $("#cart-div").hide();
+    $("#cart-container").hide();
     if (localStorage.getItem("currentUser") == "Manager") {
         setUpManagerPages();
         $("#sign-out-btn").css("display", "flex");
         $("#sign-in-btn").css("display", "none");
     }
     else {
+
         setUpCustomerPages();
+
+        if (localStorage.getItem("cartItems") == null) {
+            localStorage.setItem("cartItems", "");
+        }
         cartItems = localStorage.getItem("cartItems");
-        if (localStorage.getItem("currentUser") == "") {
+
+        if (localStorage.getItem("currentUser") == "" || localStorage.getItem("currentUser") == null) {
             $("#sign-out-btn").css("display", "none");
             $("#sign-in-btn").css("display", "flex");
         }
@@ -22,7 +30,10 @@ $(document).ready(function() {
 
     $(".add-cart").click(function () {
         var children = $(this).parent().children(".cart-info").clone();
-        children.appendTo($("#cart-div"));
+        cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
+        localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
+        console.log(cartItems);
+        buildCart();
     })
 
 })
@@ -109,10 +120,35 @@ function setUpCustomerPages() {
 }
 
 function openCart() {
-    if ($("#cart-div").css("display") == "flex") {
-        $("#cart-div").css("display", "none");
+    if ($("#cart-container").css("display") == "block") {
+        $("#cart-container").hide();
     }
     else {
-        $("#cart-div").css("display", "flex");  
+        buildCart();
+        $("#cart-container").show();
+    }
+}
+
+function buildCart() {
+    console.log("start");
+    let i = 0;
+    while (cartItems != "," && i < cartItems.length) {
+        if (cartItems[i] == ":" && i != 0) {
+            var itemDiv = document.createElement("div");
+            itemDiv.classList.add("cart-item");
+            itemDiv.append(cartItems.substring(0,i));
+            cartItems = cartItems.substring(i+1);
+            i = 0;
+        }
+        else if (cartItems[i] == "," && i != 0) {
+            itemDiv.append(cartItems.substring(0,i));
+            cartItems = cartItems.substring(i+1);
+            $("#cart-container").append(itemDiv);
+            i = 0;
+        }
+        else {
+            console.log(i);
+            i++;
+        }
     }
 }
