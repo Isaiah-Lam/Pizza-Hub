@@ -7,16 +7,19 @@
         <script src="pizzahub.js"></script>
     </head>
 
-    <body>
+    <body id="body">
+
+        <div id="cart-container">
+            <h1 style="margin: 10px auto; width: fit-content;">Your Cart</h1>
+        </div>
 
         <section class="topnav">
             
             <a class="active" href="index.html">Home</a>
             <a class="active" href="menu.html">Menu</a>
-            <a class="active" href="#contact">Contact</a>
-            <a class="active" href="#about">About</a>
-            <a class="active" href="log-in.html">Sign In</a>
-            <a class="cart-button" href=""><ion-icon class="cart-icon" name="cart"></ion-icon></a>
+            <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
+            <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
+            <button type="button" class="cart-button" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
         </section>
 
         <div class="logo-container">  
@@ -34,9 +37,9 @@
                 <h2 class="category-title" onclick="openCategory('#pizza','#pizza-items')">Pizzas<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/pizza.gif" alt="Pizza"></h2>
                 <div class="item-div" id="pizza-items">
                     <div class="item">
-                        <h3 class="item-title">H.U.B. Pizza</h3>
+                        <h3 class="item-title cart-info">H.U.B. Pizza</h3>
                         <p class="item-desc">Our signature pizza, with ham, uranium, and bacon.</p>
-                        <p class="item-price">$99.99</p>
+                        <p class="item-price cart-info">$99.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -47,9 +50,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Joel's Pizza</h3>
+                        <h3 class="item-title cart-info">Joel's Pizza</h3>
                         <p class="item-desc">Joel's specialty, topped with fasnachts.</p>
-                        <p class="item-price">$12.99</p>
+                        <p class="item-price cart-info">$12.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -60,9 +63,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Manon's Pizza</h3>
+                        <h3 class="item-title cart-info">Manon's Pizza</h3>
                         <p class="item-desc">Manon's specialty, with a layer of buffalo chicken inside the crust. Topped with cheese.</p>
-                        <p class="item-price">$19.99</p>
+                        <p class="item-price cart-info">$19.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -73,9 +76,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Saif's Special</h3>
+                        <h3 class="item-title cart-info">Saif's Special</h3>
                         <p class="item-desc">Special pizza with aged, hardened milk, and an iPhone 10.</p>
-                        <p class="item-price">$999,999.99</p>
+                        <p class="item-price cart-info">$999,999.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -92,9 +95,9 @@
                 <h2 class="category-title" onclick="openCategory('#subs','#sub-items')">Subs<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/sub.png" alt="Sub"></h2>
                 <div class="item-div" id="sub-items">
                     <div class="item">
-                        <h3 class="item-title">Cheesesteak</h3>
+                        <h3 class="item-title cart-info">Cheesesteak</h3>
                         <p class="item-desc">Traditional cheesesteak, with premium beef and grilled onions, and provolone cheese.</p>
-                        <p class="item-price">$10.99</p>
+                        <p class="item-price cart-info">$10.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -105,9 +108,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Italian Sub</h3>
+                        <h3 class="item-title cart-info">Italian Sub</h3>
                         <p class="item-desc">A classic Italian sub.</p>
-                        <p class="item-price">$10.99</p>
+                        <p class="item-price cart-info">$10.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -118,9 +121,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Chicken Parm</h3>
+                        <h3 class="item-title cart-info">Chicken Parm</h3>
                         <p class="item-desc">Breaded chicken with sauce and parmesean cheese.</p>
-                        <p class="item-price">$11.99</p>
+                        <p class="item-price cart-info">$11.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -131,9 +134,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Meatball Sub</h3>
+                        <h3 class="item-title cart-info">Meatball Sub</h3>
                         <p class="item-desc">Handmade meatballs and sauce.</p>
-                        <p class="item-price">$11.99</p>
+                        <p class="item-price cart-info">$11.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -150,9 +153,9 @@
                 <h2 class="category-title" onclick="openCategory('#sides','#side-items')">Sides<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/fries.png" alt="French Fries"></h2>
                 <div class="item-div" id="side-items">
                     <div class="item">
-                        <h3 class="item-title">Wings</h3>
+                        <h3 class="item-title cart-info">Wings</h3>
                         <p class="item-desc">6 traditional wings with your choice of Mild, Hot, BBQ, or Garlic sauce.</p>
-                        <p class="item-price">$8.99</p>
+                        <p class="item-price cart-info">$8.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -163,9 +166,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Mozzarela Sticks</h3>
+                        <h3 class="item-title cart-info">Mozzarela Sticks</h3>
                         <p class="item-desc">6 mozzarela sticks with marinara dipping sauce.</p>
-                        <p class="item-price">$5.99</p>
+                        <p class="item-price cart-info">$5.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -176,9 +179,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">French Fries</h3>
+                        <h3 class="item-title cart-info">French Fries</h3>
                         <p class="item-desc">Fresh-cut fries made from Irish grown potatoes</p>
-                        <p class="item-price">$6.99</p>
+                        <p class="item-price cart-info">$6.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -189,9 +192,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Pasta</h3>
+                        <h3 class="item-title cart-info">Pasta</h3>
                         <p class="item-desc">Hand-crafted noodles with your choice of butter sauce or meat sauce.</p>
-                        <p class="item-price">$7.99</p>
+                        <p class="item-price cart-info">$7.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -208,9 +211,9 @@
                 <h2 class="category-title" onclick="openCategory('#desserts','#dessert-items')">Desserts<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/cookie.png" alt="Cookie"></h2>
                 <div class="item-div" id="dessert-items">
                     <div class="item">
-                        <h3 class="item-title">Fasnachts</h3>
+                        <h3 class="item-title cart-info">Fasnachts</h3>
                         <p class="item-desc">3 freshly baked fasnachts</p>
-                        <p class="item-price">$3.99</p>
+                        <p class="item-price cart-info">$3.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -221,9 +224,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Cookie</h3>
+                        <h3 class="item-title cart-info">Cookie</h3>
                         <p class="item-desc">A warm, 6 inch cookie with chocolate chips.</p>
-                        <p class="item-price">$4.99</p>
+                        <p class="item-price cart-info">$4.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -234,9 +237,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Handfull of Whipped Cream</h3>
+                        <h3 class="item-title cart-info">Handfull of Whipped Cream</h3>
                         <p class="item-desc">One of our employees with spray a mound of whipped cream into your hand.</p>
-                        <p class="item-price">$9.99</p>
+                        <p class="item-price cart-info">$9.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -247,9 +250,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Brownies</h3>
+                        <h3 class="item-title cart-info">Brownies</h3>
                         <p class="item-desc">3 freshly backed brownies with powered sugar.</p>
-                        <p class="item-price">$3.99</p>
+                        <p class="item-price cart-info">$3.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -266,9 +269,9 @@
                 <h2 class="category-title" onclick="openCategory('#drinks','#drink-items')">Drinks<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/drink.png" alt="Drink"></h2>
                 <div class="item-div" id="drink-items">
                     <div class="item">
-                        <h3 class="item-title">Milk</h3>
+                        <h3 class="item-title cart-info">Milk</h3>
                         <p class="item-desc">1 pint of milk.</p>
-                        <p class="item-price">$1.99</p>
+                        <p class="item-price cart-info">$1.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -279,9 +282,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Mystery Soda</h3>
+                        <h3 class="item-title cart-info">Mystery Soda</h3>
                         <p class="item-desc">A bottle of mystery soda.</p>
-                        <p class="item-price">$1.99</p>
+                        <p class="item-price cart-info">$1.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -292,9 +295,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Grease</h3>
+                        <h3 class="item-title cart-info">Grease</h3>
                         <p class="item-desc">A bottle filled with grease from our oven.</p>
-                        <p class="item-price">$2.99</p>
+                        <p class="item-price cart-info">$2.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -305,9 +308,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title">Water</h3>
+                        <h3 class="item-title cart-info">Water</h3>
                         <p class="item-desc">1/4 cup of water.</p>
-                        <p class="item-price">$0.99</p>
+                        <p class="item-price cart-info">$0.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>

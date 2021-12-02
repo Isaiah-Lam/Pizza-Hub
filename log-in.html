@@ -12,15 +12,18 @@
    
 </head>
 
-<body>
+<body id="body">
+
+    <div id="cart-container">
+        <h1 style="margin: 10px auto; width: fit-content;">Your Cart</h1>
+    </div>
 
     <section class="topnav">
         <a class="active" href="index.html">Home</a>
         <a class="active" href="menu.html">Menu</a>
-        <a class="active" href="#contact">Contact</a>
-        <a class="active" href="#about">About</a>
-        <a class="active" href="log-in.html">Sign In</a>
-        <a class="cart-button" href=""><ion-icon class="cart-icon" name="cart"></ion-icon></a>
+        <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
+        <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
+        <button type="button" class="cart-button" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
     </section>
     
     <div class="logo-container">  
