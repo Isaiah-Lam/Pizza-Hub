@@ -18,6 +18,44 @@ function openCategory(id, items) {
     }
 }
 
+// sticky nav bar color change 
+
+window.onscroll = function() {
+    var top = window.scrollY;
+    console.log(top)
+    if(top >= 1){
+    let nav = document.querySelector('.topnav')
+    nav.style['padding'] = '.5rem'
+    nav.style['background-color'] = '#292929'
+
+    var links = document.getElementsByClassName('active')
+    for (let i=1; i < links.length; i++){
+        links[i].style['color'] = 'white'
+        links[i].style ['padding'] = '.5rem'
+    }
+        links[0].style ['padding'] = '.5rem'
+        links[0].style ['active:hover'] = 'blue'
+
+        let stated = document.querySelector('.cart-icon')
+        stated.style['color'] = 'white'
+    }
+
+    else if(top == 0){
+        let nav = document.querySelector('.topnav')
+        nav.style['padding'] = '.5rem'
+        nav.style['background-color'] = 'rgba(0,0,0,0.3)'
+
+        var links = document.getElementsByClassName('active')
+        for (let i=1; i < links.length; i++){
+        links[i].style['color'] = 'white'
+    }
+        links[0].style ['color'] = 'white'
+
+        let stated = document.querySelector('.cart-icon')
+        stated.style['color'] = 'white'
+    }
+}
+// tablinks
 
 function openLoginPage(evt, loginPage) {
     
@@ -31,30 +69,11 @@ function openLoginPage(evt, loginPage) {
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
       tablinks[i].className = tablinks[i].className.replace(" active", "");
-
-
-function myFunction() {
-    let x = document.getElementById("myDiv1");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    else {
-      x.style.display = "none";
-
     }
-  
     document.getElementById(loginPage).style.display = "block";
     evt.currentTarget.className += " active";
 }
 
-function myFunction1() {
-    let y = document.getElementById("myDiv2");
-    if (y.style.display === "none") {
-      y.style.display = "block";
-    } 
-    else {
-      y.style.display = "none";
-    }
-}
 
 
 function signUp() {
@@ -100,6 +119,8 @@ function setUpManagerPages() {
 function openMenu() {
     window.open('menu.html', '_self');
     setUpManagerPages();
+}
+
 function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");

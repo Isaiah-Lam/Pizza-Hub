@@ -5,6 +5,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="pizzahub.js"></script>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> 
         <title>
             Pizza-Hub &#153;
         </title>
@@ -12,6 +14,9 @@
 
     <body id="home-body">
         <section class="topnav">
+            <div class="logo-container">  
+                <img src="links&images/home-logo.png" class="logo" alt=""> 
+            </div>
             <a class="active" href="index.html">Home</a>
             <a class="active" href="menu.html">Menu</a>
             <a class="active" href="#contact">Contact</a>
@@ -19,14 +24,8 @@
             <a class="active" href="log-in.html">Sign In</a>
             <a class="cart-button" href=""><ion-icon class="cart-icon" name="cart"></ion-icon></a>
         </section>
-
-        <div class="logo-container">  
-            <img src="links&images/home-logo.png" class="logo" alt=""> 
-
-        </div>
-
+        
         <section id="manager-special">
-
             <div id="special-container">
                 <p id="home-special-title">
                     Hub's Weekly Special: 15% Off
@@ -35,27 +34,101 @@
                 This is where the special will go
                 </p>
                 <img src="" alt="">
-                
-
             </div>
-
         </section>
+        
         <section id="home-about-us">
             <p>
                 Here at Pizza Hub, we pride ourselves in using the freshest organic ingredients, from sustainable and net zero emission farms. 
                 These factors cause our prices to be higher than the competition, but we make a zero-compromise pizza. Since we make a superior
-                 product, we insist on being compensated accordingly. We offer many gracious specials and coupons to reduce prices for you.
-                 If you still can’t afford the pizza, after coupons and rewards, then it’s safe to assume that our pizza would be wasted on you. 
+                product, we insist on being compensated accordingly. We offer many gracious specials and coupons to reduce prices for you.
+                If you still can’t afford the pizza, after coupons and rewards, then it’s safe to assume that our pizza would be wasted on you. 
             </p>
         </section>
 
+        <section class="food-pics">
+            <div class="food-wrap">
+                <div class="food-block">
+                    <div class="food-slide">
+                        <img src="links&images/PizzaHubPizza.jpeg" alt="">
+                        <div class="description">
+                            <h3>Try our specialty pizza!</h3>
+                            <p>Our signature pizza, with ham, uranium, and bacon. $99.99 </p>
+                            <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
+                        </div>
+                    </div>
+                    <div class="food-slide">
+                        <img src="links&images/Philly-CheeseSteak-3.jpeg" alt="">
+                        <div class="description">
+                            <h3>Authentic Cheeseteaks!</h3>
+                            <p>Traditional cheesesteak, with premium beef and grilled onions, and provolone cheese. $10.99</p>
+                            <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
+                        </div>
+                    </div>
+                    <div class="food-slide">
+                        <img src="links&images/fasnachts.jpeg" alt="">
+                        <div class="description">
+                            <h3>Delicious desserts!</h3>
+                            <p>3 freshly baked fasnachts $3.99</p>
+                            <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
+                        </div>
+                    </div>
+                    <div class="food-slide">
+                        <img src="links&images/Franks RedHot Original Buffalo Chicken Wings.jpeg" alt="">
+                        <div class="description">
+                            <h3>Wings!</h3>
+                            <p>6 traditional wings with your choice of Mild, Hot, BBQ, or Garlic sauce. $8.99</p>
+                            <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
+                        </div>
+                    </div>
+                    <div class="food-slide">
+                        <img src="links&images/grease.jpg" alt="">
+                        <div class="description">
+                            <h3>Grease!</h3>
+                            <p>A bottle filled with grease from our oven. $2.99</p>
+                            <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-details">
+              <div class="details">
+                <h1>Get in Touch</h1>
+                <form class="contact-form" method="post" action="mailto:pizzahub@gmail.com">
+                      <label class="name extra">Pizza Hub</label>
+                      <label class="name extra">pizzahub@gmail.com</label>
+                      <label for="message" class="msg">Message</label>
+                      <input type="text" name="Message" size="1500" maxlength="1500" />
+                      <button class="submit-input">Send Message</button>
+                  </form>
+              </div>
+            </div>
+            <div class="contact-location">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.278875347443!2d-77.05845558463685!3d38.871860956054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b6df29ed2c27%3A0xaf83d0f8c013532f!2sThe%20Pentagon!5e0!3m2!1sen!2sus!4v1638297197749!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </section> 
+
+        <section class="footer">
+            <div class="copyright">
+                <p>© Copyright 2021 Three Guys LLC</p>
+                <a href="https://www.facebook.com/pizzahub"><ion-icon class="icon facebook" name="logo-facebook"></ion-icon></a>
+                <a href="https://twitter.com/pizzahub"><ion-icon class="icon twitter" name="logo-twitter"></ion-icon></a>
+                <a href="https://www.instagram.com/pizzahub/"><ion-icon class="icon instagram" name="logo-instagram"></ion-icon></a>
+                <a href="https://www.youtube.com/user/pizzahub"><ion-icon class="icon youtube" name="logo-youtube"></ion-icon></a>
+                <a href="https://www.tumblr.com/blog/view/pizzahub"><ion-icon class="icon tumblr" name="logo-tumblr"></ion-icon></a>
+                <a href="https://www.reddit.com/r/Pizza/"><ion-icon class="icon reddit" name="logo-reddit"></ion-icon></a>
+                <a href="https://github.com/JoelFasnacht/Pizza-Hub/"><ion-icon class="icon github" name="logo-github"></ion-icon></a>
+                <a href="https://www.linkedin.com/in/pizza-hub-b4502578/"><ion-icon class="icon linkedin" name="logo-linkedin"></ion-icon></a>
+                <a href="https://www.pinterest.com/pizzahub/"><ion-icon class="icon pinterest" name="logo-pinterest"></ion-icon></a>
+                <a href="https://www.snapchat.com/"><ion-icon class="icon snapchat" name="logo-snapchat"></ion-icon></a>
+                <a href="https://tinder.com"><ion-icon class="icon tinder" name="flame"></ion-icon></a>
+            </div>
+        </section>
 
 
-
-
-
-
-    
 
     </body>
 
