@@ -48,6 +48,44 @@ function openCategory(id, items) {
     }
 }
 
+// sticky nav bar color change 
+
+window.onscroll = function() {
+    var top = window.scrollY;
+    console.log(top)
+    if(top >= 1){
+    let nav = document.querySelector('.topnav')
+    nav.style['padding'] = '.5rem'
+    nav.style['background-color'] = '#292929'
+
+    var links = document.getElementsByClassName('active')
+    for (let i=1; i < links.length; i++){
+        links[i].style['color'] = 'white'
+        links[i].style ['padding'] = '.5rem'
+    }
+        links[0].style ['padding'] = '.5rem'
+        links[0].style ['active:hover'] = 'blue'
+
+        let stated = document.querySelector('.cart-icon')
+        stated.style['color'] = 'white'
+    }
+
+    else if(top == 0){
+        let nav = document.querySelector('.topnav')
+        nav.style['padding'] = '.5rem'
+        nav.style['background-color'] = 'rgba(0,0,0,0.3)'
+
+        var links = document.getElementsByClassName('active')
+        for (let i=1; i < links.length; i++){
+        links[i].style['color'] = 'white'
+    }
+        links[0].style ['color'] = 'white'
+
+        let stated = document.querySelector('.cart-icon')
+        stated.style['color'] = 'white'
+    }
+}
+// tablinks
 
 function openLoginPage(evt, loginPage) {
     
@@ -66,7 +104,6 @@ function openLoginPage(evt, loginPage) {
     document.getElementById(loginPage).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 
 function signUp() {
     let username = $("#username").val() + "";
@@ -110,6 +147,11 @@ function setUpManagerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "block");
     });
+}
+
+function openMenu() {
+    window.open('menu.html', '_self');
+    setUpManagerPages();
 }
 
 function setUpCustomerPages() {
