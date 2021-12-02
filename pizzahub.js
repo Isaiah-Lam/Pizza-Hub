@@ -1,4 +1,6 @@
 
+    
+
 var cartItems;
 
 $(document).ready(function() {
@@ -37,6 +39,46 @@ $(document).ready(function() {
 
 })
 
+
+function refreshButtons(){
+    $(".change-price").click(function () {
+        let newPrice = Number(prompt("New item Price."))
+        $(this).parent().parent().find(".item-price").text("$" + newPrice)
+    })
+    $(".change-name").click(function(){
+        let newName = prompt("Enter this item's new name:")
+        $(this).parent().parent().find(".item-title").text(newName)
+    })
+    $(".change-description").click(function(){
+        let newDesc = prompt("Enter this item's new description:")
+        $(this).parent().parent().find(".item-desc").text(newDesc)
+    })
+    $(".delete-item").click(function () {
+        console.log("it worked")
+        if(window.confirm("Are you sure?")){
+            $(this).parent().parent().remove()
+        }
+        
+    })
+    }
+
+let newItemButton = document.querySelectorAll("add-item")
+for(e of newItemButton){
+    e.addEventListener('click', addNewItem())
+}
+
+function addNewItem(id){
+    let newItemTitle = prompt("Enter the new item name:")
+    let newItemPrice = Number(prompt("Enter new item price:"))
+    let newItemDescription = prompt("Enter this item's description:")
+    console.log("clicks working")
+    let template = $("#item-template").clone()
+    refreshButtons();
+}
+
+
+appendTo(id)
+
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
         $(id).css("overflow", "hidden");
@@ -46,6 +88,8 @@ function openCategory(id, items) {
         $(id).css("overflow", "initial");
         $(items).slideDown(500);
     }
+    
+    
 }
 
 // sticky nav bar color change 

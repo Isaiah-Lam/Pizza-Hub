@@ -83,6 +83,9 @@ body {
     background-color: #ffa31a;
     color: black;
 }
+button:hover{
+    opacity: .5;
+}
 
 .cart-button {
     position: absolute;

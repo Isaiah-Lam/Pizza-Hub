@@ -3,7 +3,10 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        
+<script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+       
         <script src="pizzahub.js"></script>
     </head>
 
@@ -31,7 +34,7 @@
         
         <div id="menu">
             <div id="pizza" class="menu-category">
-                <button type="button" class="add-item editor-btn">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#pizza-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#pizza','#pizza-items')">Pizzas<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/pizza.gif" alt="Pizza"></h2>
                 <div class="item-div" id="pizza-items">
                     <div class="item">
@@ -41,7 +44,7 @@
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
-                            <button type="button" class="delete-item editor-btn">Delete Item</button>
+                            <button type="button" class="delete-item editor-btn">Delete Item</button>   
                             <button type="button" class="change-price editor-btn">Change Price</button>
                             <button type="button" class="change-name editor-btn">Change Name</button>
                             <button type="button" class="change-description editor-btn">Change Description</button>
