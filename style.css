@@ -15,7 +15,44 @@ body {
     background-repeat: no-repeat;
 }
 
+#cart-container {
+    z-index: 10;
+    background-color: white;
+    width: 75vw;
+    height: 75vh;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: black;
+    
+}
+
+.cart-item {
+    border-top: 1px solid gray;
+}
+
 /* this section is for the login */
+
+#home-body {
+    max-height: 100vh;
+}
+
+.logo-container {
+    position: absolute;
+    left: 0;
+    margin-left: 1%;
+    margin-top: 2px;
+    transition: .3s;
+}
+
+.logo {
+    width: 100%;
+    height: 50px;
+    margin: 0px 0 0 5px;
+    border-radius: 9px;
+}
 
 .topnav {
     display: flex;
@@ -26,6 +63,7 @@ body {
     padding: 0.2rem 0 0.2rem 0;
     margin-bottom: 0.5rem;
     position: fixed;
+    top: 0;
     width: 100vw;
     height: 50px;
     font-size: 18px;
@@ -55,6 +93,11 @@ button:hover{
     margin-right: 5%;
     color: white;
     transition: .3s;
+    background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .cart-icon {
@@ -67,6 +110,10 @@ button:hover{
     transition: .3s;
 }
 
+.tab-margin {
+    margin-top: 8rem;
+}
+
 .tab {
     display: flex;
     justify-content: center;
@@ -74,8 +121,8 @@ button:hover{
     overflow: hidden;
     border: 1px solid #ffa31a;
     background-color: rgba(0,0,0,0.3);
-    margin: 2rem auto;
-    padding: 10px 40px;
+    margin: 10px  auto;
+    padding: 10px 50px;
     width: fit-content;
 }
 
@@ -92,7 +139,8 @@ button:hover{
 .login-and-signup {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: 60vh;
+    margin-bottom: 3.7rem;
 }
 
 .tabcontent {
@@ -164,11 +212,22 @@ input[type='submit'], label {
     color: white;
 }
 
+#sign-out-btn {
+    display: none;
+}
+
 /* this section is for the menu */
+#menu-title {
+    background-color: #b4b4b4;
+    width: fit-content;
+    margin: 80px auto 50px auto;
+    clear: both;
+    border: 2px solid black;
+}
 
 #menu {
     width: 60%;
-    margin: -25px auto 20px auto;
+    margin: -25px auto 60px auto;
 }
 
 .menu-category {
@@ -211,7 +270,7 @@ input[type='submit'], label {
     border-radius: 10px;
 }
 
-#home-body {
+.home-body {
     max-height: 100vh;
 }
 
@@ -228,6 +287,7 @@ input[type='submit'], label {
     border-radius: 9px;
 }
 
+
 .category-title {
     padding-bottom: 10px;
 }
@@ -237,14 +297,6 @@ input[type='submit'], label {
     width: auto;
     margin: 0px 0px -15px 5px;
 } 
-
-#menu-title {
-    background-color: #b4b4b4;
-    width: fit-content;
-    margin: -75px auto 30px auto;
-    clear: both;
-    border: 2px solid black;
-}
 
 .editor-btn {
     width: 150px;
@@ -278,4 +330,262 @@ input[type='submit'], label {
 
 .change-description {
     background-color: purple;
+}
+
+/* home page */
+
+#manager-special {
+    margin-top: 5rem;
+}
+
+#special-container, #home-about-us {
+    text-align: center;
+    justify-content: center;
+}
+
+.food-pics {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0.1px solid rgba(119, 119, 119, 0.301);
+}
+
+.food-wrap {
+    background-color: #b67514;
+    padding-top: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.food-block {
+    display: flex;
+}
+
+.food-slide {
+    display: flex;
+    margin-bottom: 2rem;
+    background-color: #808080;
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 20px;
+}
+
+.food-slide img {
+    height: 230px;
+    width: 300px;
+    border-radius: 20px 0 0 20px;
+}
+
+.food-slide button {
+    margin-top: 1rem;
+    height: 45px;
+    width: 65px;
+    border-radius: 20px;
+}
+
+.food-slide a {
+    text-decoration: none;
+}
+
+.description {
+    padding: 20px;
+    width: 300px;
+    white-space: normal;
+}
+
+.description h3 {
+    font-size: 26px;
+    font-weight: 300;
+    padding: 5px 0;
+}
+
+.description p {
+    font: 16px Roboto, Helvetica, Sans-serif;
+    color: black;
+    margin: 0;
+}
+
+.btn {
+    background-color: black;
+    color: white;
+}
+
+.btn:hover {
+    background-color:rgb(255, 163, 26)
+}
+
+.btn a:visited {
+    color: silver;
+}
+
+
+
+
+
+
+/* contact info of home screen*/
+.contact {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-details, .contact-location {
+    height: 50%;
+    width: 15%;
+    max-width: 500px;
+}
+.contact-details {
+    padding: 30px;
+    background-color: #ff9d0a;
+    color: white;
+}
+.contact-details h1 {
+    font-size: 1rem;
+}
+/* .contact-form input {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.submit-input {
+    font-size: 16px;
+    padding: 15px 30px;
+    background: #f69314;
+    border-radius: 30px;
+    border: none;
+    color: #fff;
+} */
+.contact-location {
+    border: solid 3px black;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+}
+
+.name {
+    display: block;
+}
+
+/* .name {
+    padding-bottom: 20px;
+    padding-top: 20px;
+} */
+
+.box, .msg{
+    color: #f69314;
+}
+
+.extra {
+    font-size: 12px;
+}
+
+/* .msg{
+    padding-bottom: 25px;
+} */
+
+
+/* footer */
+
+.footer {
+    padding: 10px;
+    background-color: #292929;
+    color: white;
+    text-align: center;
+}
+
+.facebook {
+    color: #4267B2;
+}
+
+.facebook:hover {
+    color: #33518f;
+}
+
+.twitter {
+    color: #1DA1F2;
+}
+
+.twitter:hover {
+    color: #1887cc;
+}
+
+.instagram {
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+}
+
+.instagram:hover {
+    background: radial-gradient(circle at 33% 100%, #fed273ab 4%, #c44237 30%, #a72260 62%, #69247c 85%, #3f49a1);
+}
+
+.youtube {
+    color: #FF0000;
+}
+
+.youtube:hover {
+    color: #d10101;
+}
+
+.tumblr {
+    color: #34526f;
+}
+
+.tumblr:hover {
+    color: #29425a;
+}
+
+.reddit {
+    color: #FF5700;
+}
+
+.reddit:hover {
+    color: #da4900;
+}
+
+.github {
+    color: #171515;
+}
+
+.github:hover {
+    color: #000000;
+    background-color: #4b4343;
+}
+
+.linkedin {
+    color: #1DA1F2;
+}
+
+.linkedin:hover {
+    color: #1887cc;
+}
+
+.pinterest {
+    color: #E60023;
+}
+
+.pinterest:hover {
+    color: #c5011e;
+}
+.snapchat {
+    color: #FFFC00;
+}
+
+.snapchat:hover {
+    color: #ccc900;
+}
+
+.tinder {
+    color: #fe3c72;
+}
+
+.tinder:hover {
+    color: #dd3464;
 }
