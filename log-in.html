@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
     <script src="pizzahub.js"></script>
     <title>Pizza Hub Log In</title>
    
@@ -16,6 +17,7 @@
 
     <div id="cart-container">
         <h1 style="margin: 10px auto; width: fit-content;">Your Cart</h1>
+        <div id="cart-div"></div>
     </div>
 
     <section class="topnav">

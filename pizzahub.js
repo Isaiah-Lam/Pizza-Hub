@@ -1,4 +1,7 @@
 
+
+// localStorage.clear();
+
 var cartItems;
 
 $(document).ready(function() {
@@ -16,6 +19,7 @@ $(document).ready(function() {
             localStorage.setItem("cartItems", "");
         }
         cartItems = localStorage.getItem("cartItems");
+        buildCart();
 
         if (localStorage.getItem("currentUser") == "" || localStorage.getItem("currentUser") == null) {
             $("#sign-out-btn").css("display", "none");
@@ -29,13 +33,68 @@ $(document).ready(function() {
 
     $(".add-cart").click(function () {
         var children = $(this).parent().children(".cart-info").clone();
-        cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
-        localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
-        console.log(cartItems);
-        buildCart();
+        console.log(children[0].innerHTML)
+        console.log(localStorage.getItem("cartItems"));
+        console.log(localStorage.getItem("cartItems").indexOf(children[0].innerHTML));
+        if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML) == -1) {
+            cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
+            localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
+            buildCart(); 
+        }
+        else {
+            alert("That item is already in your cart. Open cart to adjust quantity.");
+        }
     })
-
 })
+
+
+function refreshButtons(){
+    $(".change-price").click(function () {
+        let newPrice = Number(prompt("New item Price."))
+        $(this).parent().parent().find(".item-price").text("$" + newPrice)
+    })
+    $(".change-name").click(function(){
+        let newName = prompt("Enter this item's new name:")
+        $(this).parent().parent().find(".item-title").text(newName)
+    })
+    $(".change-description").click(function(){
+        let newDesc = prompt("Enter this item's new description:")
+        $(this).parent().parent().find(".item-desc").text(newDesc)
+    })
+    $(".delete-item").click(function () {
+        console.log("it worked")
+        if(window.confirm("Are you sure?")){
+            $(this).parent().parent().remove()
+        }
+        
+    })
+    }
+
+let newItemButton = document.querySelectorAll("add-item")
+for(e of newItemButton){
+    e.addEventListener('click', addNewItem())
+}
+
+function addNewItem(id){
+    let newItemTitle = prompt("Enter the new item name:")
+    let newItemPrice = prompt("Enter new item price:")
+    let newItemDescription = prompt("Enter this item's description:")
+    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "")){
+        let template = $("#item-template").clone()
+        let templateChildren = template.children()
+        console.log(templateChildren)
+        
+        templateChildren[0].innerHTML = newItemTitle
+        templateChildren[1].innerHTML = newItemDescription
+        templateChildren[2].innerHTML = "$" + newItemPrice
+        $(id).prepend(template)
+        refreshButtons();
+    }
+   
+}
+
+
+
 
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
@@ -46,6 +105,8 @@ function openCategory(id, items) {
         $(id).css("overflow", "initial");
         $(items).slideDown(500);
     }
+    
+    
 }
 
 // sticky nav bar color change 
@@ -164,41 +225,63 @@ function openCart() {
         $("#cart-container").hide();
     }
     else {
-        buildCart();
         $("#cart-container").show();
     }
 }
 
 function buildCart() {
-    console.log("start");
     let i = 0;
     while (cartItems != "," && i < cartItems.length) {
         if (cartItems[i] == ":" && i != 0) {
             var itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
-            itemDiv.append(cartItems.substring(0,i));
+            let name = document.createElement("h2");
+            name.classList.add("cart-item-title");
+            name.innerHTML = cartItems.substring(0,i);
+            itemDiv.append(name);
             cartItems = cartItems.substring(i+1);
             i = 0;
         }
+
         else if (cartItems[i] == "," && i != 0) {
-            itemDiv.append(cartItems.substring(0,i));
+            let price = document.createElement("p");
+            price.innerHTML = cartItems.substring(0,i);
+            itemDiv.append(price);
             cartItems = cartItems.substring(i+1);
-            $("#cart-container").append(itemDiv);
+            let removeBtn = document.createElement("div");
+            removeBtn.classList.add("remove-btn");
+            removeBtn.onclick = function () {
+                let itemName = $(this).parent().children()[0].innerHTML;
+                cartItems = localStorage.getItem("cartItems");
+                let stringIndex = cartItems.indexOf(itemName);
+                console.log(itemName);
+                console.log(stringIndex);
+                cartItems = cartItems.substring(0,stringIndex) + cartItems.substring(cartItems.indexOf(",",stringIndex)+1);
+                localStorage.setItem("cartItems", cartItems);
+                $(this).parent().remove();
+                
+            };
+            itemDiv.append(removeBtn);
+
+
+            var quantityInput = document.createElement("input");
+            quantityInput.type = "number";
+            quantityInput.classList.add("item-quantity");
+            quantityInput.value = "1";
+            quantityInput.min = "1";
+            quantityInput.onchange = function () {
+                let itemPrice = Number($(this).parent().children()[1].innerHTML.substring(1));
+                let totalItemPrice = itemPrice * $(this).val();
+                console.log(totalItemPrice);
+            }
+            itemDiv.append(quantityInput);
+            $("#cart-div").append(itemDiv);
             i = 0;
         }
+
         else {
-            console.log(i);
             i++;
         }
     }
 }
 
-// $(document).ready(() => {
-//     $('.pic-holder').slick({
-//         infinite: true,
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//         nextArrow: '.next',
-//         prevArrow: '.prev',
-//     })
-// }) 
