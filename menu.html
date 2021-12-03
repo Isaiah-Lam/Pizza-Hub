@@ -37,7 +37,7 @@
                 <button type="button" class="add-item editor-btn" onclick="addNewItem('#pizza-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#pizza','#pizza-items')">Pizzas<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/pizza.gif" alt="Pizza"></h2>
                 <div class="item-div" id="pizza-items">
-                    <div class="item">
+                    <div class="item" id="item-template">
                         <h3 class="item-title cart-info">H.U.B. Pizza</h3>
                         <p class="item-desc">Our signature pizza, with ham, uranium, and bacon.</p>
                         <p class="item-price cart-info">$99.99</p>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div id="subs" class="menu-category">
-                <button type="button" class="add-item editor-btn">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#sub-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#subs','#sub-items')">Subs<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/sub.png" alt="Sub"></h2>
                 <div class="item-div" id="sub-items">
                     <div class="item">
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div id="sides" class="menu-category">
-                <button type="button" class="add-item editor-btn">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#side-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#sides','#side-items')">Sides<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/fries.png" alt="French Fries"></h2>
                 <div class="item-div" id="side-items">
                     <div class="item">
@@ -208,7 +208,7 @@
                 </div>
             </div>
             <div id="desserts" class="menu-category">
-                <button type="button" class="add-item editor-btn">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#dessert-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#desserts','#dessert-items')">Desserts<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/cookie.png" alt="Cookie"></h2>
                 <div class="item-div" id="dessert-items">
                     <div class="item">
@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div id="drinks" class="menu-category">
-                <button type="button" class="add-item editor-btn">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#pizza-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#drinks','#drink-items')">Drinks<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/drink.png" alt="Drink"></h2>
                 <div class="item-div" id="drink-items">
                     <div class="item">

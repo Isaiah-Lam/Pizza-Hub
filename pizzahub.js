@@ -69,15 +69,24 @@ for(e of newItemButton){
 
 function addNewItem(id){
     let newItemTitle = prompt("Enter the new item name:")
-    let newItemPrice = Number(prompt("Enter new item price:"))
+    let newItemPrice = prompt("Enter new item price:")
     let newItemDescription = prompt("Enter this item's description:")
-    console.log("clicks working")
-    let template = $("#item-template").clone()
-    refreshButtons();
+    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "")){
+        let template = $("#item-template").clone()
+        let templateChildren = template.children()
+        console.log(templateChildren)
+        
+        templateChildren[0].innerHTML = newItemTitle
+        templateChildren[1].innerHTML = newItemDescription
+        templateChildren[2].innerHTML = "$" + newItemPrice
+        $(id).prepend(template)
+        refreshButtons();
+    }
+   
 }
 
 
-appendTo(id)
+
 
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
@@ -96,7 +105,6 @@ function openCategory(id, items) {
 
 window.onscroll = function() {
     var top = window.scrollY;
-    console.log(top)
     if(top >= 1){
     let nav = document.querySelector('.topnav')
     nav.style['padding'] = '.5rem'
