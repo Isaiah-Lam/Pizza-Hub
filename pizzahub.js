@@ -52,7 +52,6 @@ function openCategory(id, items) {
 
 window.onscroll = function() {
     var top = window.scrollY;
-    console.log(top)
     if(top >= 1){
     let nav = document.querySelector('.topnav')
     nav.style['padding'] = '.5rem'
@@ -193,3 +192,13 @@ function buildCart() {
         }
     }
 }
+
+// $(document).ready(() => {
+//     $('.pic-holder').slick({
+//         infinite: true,
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         nextArrow: '.next',
+//         prevArrow: '.prev',
+//     })
+// }) 
