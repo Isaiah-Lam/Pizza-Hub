@@ -2,7 +2,6 @@
 // localStorage.clear();
 
 var cartItems;
-var cartArray = [];
 
 $(document).ready(function() {
     $("#cart-container").hide();
@@ -33,11 +32,18 @@ $(document).ready(function() {
 
     $(".add-cart").click(function () {
         var children = $(this).parent().children(".cart-info").clone();
-        cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
-        localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
-        buildCart();
+        console.log(children[0].innerHTML)
+        console.log(localStorage.getItem("cartItems"));
+        console.log(localStorage.getItem("cartItems").indexOf(children[0].innerHTML));
+        if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML) == -1) {
+            cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
+            localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
+            buildCart(); 
+        }
+        else {
+            alert("That item is already in your cart. Open cart to adjust quantity.");
+        }
     })
-
 })
 
 function openCategory(id, items) {
@@ -178,10 +184,9 @@ function buildCart() {
             var itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
             let name = document.createElement("h2");
+            name.classList.add("cart-item-title");
             name.innerHTML = cartItems.substring(0,i);
             itemDiv.append(name);
-            cartArray.push(name.innerHTML);
-            console.log(cartArray);
             cartItems = cartItems.substring(i+1);
             i = 0;
         }
@@ -196,13 +201,11 @@ function buildCart() {
             removeBtn.onclick = function () {
                 let itemName = $(this).parent().children()[0].innerHTML;
                 cartItems = localStorage.getItem("cartItems");
-                let arrayIndex = cartArray.indexOf(itemName);
                 let stringIndex = cartItems.indexOf(itemName);
                 console.log(itemName);
                 console.log(stringIndex);
                 cartItems = cartItems.substring(0,stringIndex) + cartItems.substring(cartItems.indexOf(",",stringIndex)+1);
                 localStorage.setItem("cartItems", cartItems);
-                cartArray.splice(arrayIndex, 1);
                 $(this).parent().remove();
                 
             };
