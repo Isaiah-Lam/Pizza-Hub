@@ -27,28 +27,44 @@
             <a class="active" href="menu.html">Menu</a>
             <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
             <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
-            <button type="button" class="cart-button" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
+            <button type="button" class="cart-button active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
         </section>
         
         <section id="manager-special">
             <div id="special-container">
-                <p id="home-special-title">
-                    Hub's Weekly Special: 15% Off
-                <p>
-                <p>
-                This is where the special will go
-                </p>
-                <img src="" alt="">
+                <p class="home-special-title">Pizza<p>
+                <p class="home-title">for your other hand</p>
             </div>
         </section>
-        
-        <section id="home-about-us">
-            <p>
-                Here at Pizza Hub, we pride ourselves in using the freshest organic ingredients, from sustainable and net zero emission farms. 
-                These factors cause our prices to be higher than the competition, but we make a zero-compromise pizza. Since we make a superior
-                product, we insist on being compensated accordingly. We offer many gracious specials and coupons to reduce prices for you.
-                If you still can’t afford the pizza, after coupons and rewards, then it’s safe to assume that our pizza would be wasted on you. 
-            </p>
+
+        <section class="specials-slider">
+            <div class="pic-holder">
+                <div class="mySlides">
+                    <div class="pic-slider">
+                        <img src="links&images/fries.png" alt="">
+                        <p class="special-desc"></p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="pic-slider">
+                        <img src="links&images/Philly-CheeseSteak-3.jpeg" alt="">
+                        <p class="special-desc"></p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="pic-slider">
+                        <img src="links&images/Franks RedHot Original Buffalo Chicken Wings.jpeg" alt="">
+                        <p class="special-desc"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide-buttons">
+                <div class="prev-next">
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+            </div>
         </section>
 
         <section class="food-pics">
@@ -94,22 +110,34 @@
                             <button class="btn"><a href="menu.html#pizza-items">Order here!</a></button>
                         </div>
                     </div>
+                </div>
             </div>
-            </div>
+        </section>
+
+        <section class="home-about-us">
+            <h1>About Us</h1>
+            <p>
+                Here at Pizza Hub, we pride ourselves in using the freshest organic ingredients, from sustainable and net zero emission farms. 
+                These factors cause our prices to be higher than the competition, but we make a zero-compromise pizza. Since we make a superior
+                product, we insist on being compensated accordingly. We offer many gracious specials and coupons to reduce prices for you.
+                If you still can’t afford the pizza, after coupons and rewards, then it’s safe to assume that our pizza would be wasted on you. 
+            </p>
         </section>
 
         <section class="contact" id="contact">
             <div class="contact-details">
               <div class="details">
-                <h1>Get in Touch</h1>
-                <form class="contact-form" method="post" action="mailto:pizzahub@gmail.com">
-                      <label class="name extra">Pizza Hub</label>
-                      <label class="name extra">pizzahub@gmail.com</label>
-                      <label for="message" class="msg">Message</label>
-                      <input type="text" name="Message" size="1500" maxlength="1500" />
-                      <button class="submit-input">Send Message</button>
-                  </form>
-              </div>
+                    <h1>Get In Touch</h1>
+                    <form class="contact-form" method="post" action="mailto:pizzahub@gmail.com">
+                        <label class="name extra">Your Name</label>
+                        <input type="text" id="name" />
+
+                        <label for="message" class="msg">Message</label>
+                        <input type="text" name="Message" size="1500" maxlength="1500" />
+
+                        <button class="submit-input">Send Message</button>
+                    </form>
+                </div>
             </div>
             <div class="contact-location">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.278875347443!2d-77.05845558463685!3d38.871860956054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b6df29ed2c27%3A0xaf83d0f8c013532f!2sThe%20Pentagon!5e0!3m2!1sen!2sus!4v1638297197749!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -133,10 +161,6 @@
             </div>
         </section>
 
-
-
     </body>
-
-    
 
 </html>
