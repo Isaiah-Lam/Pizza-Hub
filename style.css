@@ -104,6 +104,9 @@ body {
     color: black;
     transition: .3;
 }
+button:hover{
+    opacity: .5;
+}
 
 .cart-button {
     position: absolute;
