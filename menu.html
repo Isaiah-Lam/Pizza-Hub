@@ -13,8 +13,9 @@
     <body id="body">
 
         <div id="cart-container">
-            <h1 style="margin: 10px auto; width: fit-content;">Your Cart</h1>
+            <h1 style="margin: 10px auto; width: fit-content; border-bottom: 1px solid gray;">Your Cart</h1>
             <div id="cart-div"></div>
+            <button type="button" id="checkout-btn" onclick="checkout()">Checkout</button>
         </div>
 
         <section class="topnav">
@@ -267,7 +268,7 @@
                 </div>
             </div>
             <div id="drinks" class="menu-category">
-                <button type="button" class="add-item editor-btn" onclick="addNewItem('#pizza-items')">New Item</button>
+                <button type="button" class="add-item editor-btn" onclick="addNewItem('#drink-items')">New Item</button>
                 <h2 class="category-title" onclick="openCategory('#drinks','#drink-items')">Drinks<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/drink.png" alt="Drink"></h2>
                 <div class="item-div" id="drink-items">
                     <div class="item">

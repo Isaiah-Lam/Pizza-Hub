@@ -1,5 +1,4 @@
 
-
 // localStorage.clear();
 
 var cartItems;
@@ -30,23 +29,8 @@ $(document).ready(function() {
             $("#sign-in-btn").css("display", "none");
         }
     }
-
-    $(".add-cart").click(function () {
-        var children = $(this).parent().children(".cart-info").clone();
-        console.log(children[0].innerHTML)
-        console.log(localStorage.getItem("cartItems"));
-        console.log(localStorage.getItem("cartItems").indexOf(children[0].innerHTML));
-        if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML) == -1) {
-            cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ",";
-            localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
-            buildCart(); 
-        }
-        else {
-            alert("That item is already in your cart. Open cart to adjust quantity.");
-        }
-    })
+    refreshButtons();
 })
-
 
 function refreshButtons(){
     $(".change-price").click(function () {
@@ -66,14 +50,29 @@ function refreshButtons(){
         if(window.confirm("Are you sure?")){
             $(this).parent().parent().remove()
         }
+    })
+    $(".add-cart").click(function () {
+        if (localStorage.getItem("currentUser") == "Manager") {
+            alert("Log in as customer to purchase items");
+        }
+        else {
+            var children = $(this).parent().children(".cart-info").clone();
+            console.log(children[0].innerHTML)
+            console.log(localStorage.getItem("cartItems"));
+            console.log(localStorage.getItem("cartItems").indexOf(children[0].innerHTML));
+            if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML) == -1) {
+                cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ";";
+                localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
+                buildCart(); 
+            }
+            else {
+                alert("That item is already in your cart. Open cart to adjust quantity.");
+            }
+        }
         
     })
-    }
-
-let newItemButton = document.querySelectorAll("add-item")
-for(e of newItemButton){
-    e.addEventListener('click', addNewItem())
 }
+
 
 function addNewItem(id){
     let newItemTitle = prompt("Enter the new item name:")
@@ -83,14 +82,15 @@ function addNewItem(id){
         let template = $("#item-template").clone()
         let templateChildren = template.children()
         console.log(templateChildren)
-        
         templateChildren[0].innerHTML = newItemTitle
         templateChildren[1].innerHTML = newItemDescription
         templateChildren[2].innerHTML = "$" + newItemPrice
+        if (id == "#drink-items") {
+            templateChildren.children(".set-special")[0].remove();
+        }
         $(id).prepend(template)
         refreshButtons();
     }
-   
 }
 
 
@@ -231,21 +231,22 @@ function openCart() {
 
 function buildCart() {
     let i = 0;
-    while (cartItems != "," && i < cartItems.length) {
+    while (cartItems != ";" && i < cartItems.length) {
         if (cartItems[i] == ":" && i != 0) {
             var itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
             let name = document.createElement("h2");
-            name.classList.add("cart-item-title");
             name.innerHTML = cartItems.substring(0,i);
+            $(name).css("width", "fit-content");
             itemDiv.append(name);
             cartItems = cartItems.substring(i+1);
             i = 0;
         }
 
-        else if (cartItems[i] == "," && i != 0) {
+        else if (cartItems[i] == ";" && i != 0) {
             let price = document.createElement("p");
             price.innerHTML = cartItems.substring(0,i);
+            $(price).css("width", "fit-content");
             itemDiv.append(price);
             cartItems = cartItems.substring(i+1);
             let removeBtn = document.createElement("div");
@@ -256,7 +257,7 @@ function buildCart() {
                 let stringIndex = cartItems.indexOf(itemName);
                 console.log(itemName);
                 console.log(stringIndex);
-                cartItems = cartItems.substring(0,stringIndex) + cartItems.substring(cartItems.indexOf(",",stringIndex)+1);
+                cartItems = cartItems.substring(0,stringIndex) + cartItems.substring(cartItems.indexOf(";",stringIndex)+1);
                 localStorage.setItem("cartItems", cartItems);
                 $(this).parent().remove();
                 
@@ -283,5 +284,13 @@ function buildCart() {
             i++;
         }
     }
+    if (localStorage.getItem("cartItems").length > 0) {
+
+    }
 }
 
+function checkout() {
+    let cart = document.getElementById("cart-div");
+    $(cart).slideUp(250);
+    
+}

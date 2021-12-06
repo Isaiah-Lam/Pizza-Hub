@@ -26,16 +26,16 @@ body {
     right: 0;
     margin: auto;
     color: black;
-    overflow: scroll;
 }
 
 #cart-div {
-    height: fit-content;
+    height: 80%;
+    overflow-y: scroll;
 }
 
 .cart-item {
-    border-top: 1px solid gray;
-    height: fit-content;
+    border: 1px solid gray;
+    height: 20%;
     clear: both;
 }
 
@@ -45,6 +45,7 @@ body {
     width: 50px;
     height: 50px;
     float: right;
+
 }
 
 .item-quantity {
@@ -245,6 +246,7 @@ input[type='submit'], label {
 #menu {
     width: 60%;
     margin: -25px auto 60px auto;
+    color: #292929;
 }
 
 .menu-category {
