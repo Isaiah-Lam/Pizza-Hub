@@ -44,7 +44,9 @@ $(document).ready(function() {
         else {
             alert("That item is already in your cart. Open cart to adjust quantity.");
         }
+
     })
+    refreshButtons();
 })
 
 
@@ -68,18 +70,27 @@ function refreshButtons(){
         }
         
     })
-    }
+    $(".set-special").click(function () {
+        console.log("it worked")
+        let specialInfo = $(this).parent().parent().children().clone()
+        let specialName = specialInfo[0].innerHTML;
+        let specialPrice =specialInfo[2].innerHTML;
+        console.log(specialName)
+        console.log(specialPrice)
+        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
+        
+        
+    })
 
-let newItemButton = document.querySelectorAll("add-item")
-for(e of newItemButton){
-    e.addEventListener('click', addNewItem())
 }
+
+
 
 function addNewItem(id){
     let newItemTitle = prompt("Enter the new item name:")
     let newItemPrice = prompt("Enter new item price:")
     let newItemDescription = prompt("Enter this item's description:")
-    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "")){
+    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "" || newItemTitle == null || newItemDescription == null || newItemPrice == null)){
         let template = $("#item-template").clone()
         let templateChildren = template.children()
         console.log(templateChildren)
@@ -92,6 +103,9 @@ function addNewItem(id){
     }
    
 }
+
+
+
 
 
 
