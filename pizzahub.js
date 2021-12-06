@@ -2,9 +2,17 @@
 // localStorage.clear();
 
 var cartItems;
+var total;
 
 $(document).ready(function() {
     $("#cart-container").hide();
+
+    if (localStorage.getItem("menu") == null) {
+        localStorage.setItem("menu", $("#menu").html());
+    }
+    $("#menu").html(localStorage.getItem("menu"));
+
+
     if (localStorage.getItem("currentUser") == "Manager") {
         setUpManagerPages();
         $("#sign-out-btn").css("display", "flex");
@@ -18,6 +26,12 @@ $(document).ready(function() {
             localStorage.setItem("cartItems", "");
         }
         cartItems = localStorage.getItem("cartItems");
+
+        if (localStorage.getItem("totalCost") == null) {
+            localStorage.setItem("totalCost", "0.00");
+        }
+        total = Number(localStorage.getItem("totalCost"));
+
         buildCart();
 
         if (localStorage.getItem("currentUser") == "" || localStorage.getItem("currentUser") == null) {
@@ -36,21 +50,31 @@ $(document).ready(function() {
 function refreshButtons(){
     $(".change-price").click(function () {
         let newPrice = Number(prompt("New item Price."))
+        newPrice = Math.round(newPrice*100.0) / 100;
         $(this).parent().parent().find(".item-price").text("$" + newPrice)
+        localStorage.setItem("menu", $("#menu").html());
+        $("#menu-container").html(localStorage.getItem("menu"))
+
     })
     $(".change-name").click(function(){
         let newName = prompt("Enter this item's new name:")
         $(this).parent().parent().find(".item-title").text(newName)
+        localStorage.setItem("menu", $("#menu").html());
+        $("#menu-container").html(localStorage.getItem("menu"))
     })
     $(".change-description").click(function(){
         let newDesc = prompt("Enter this item's new description:")
         $(this).parent().parent().find(".item-desc").text(newDesc)
+        localStorage.setItem("menu", $("#menu").html());
+        $("#menu-container").html(localStorage.getItem("menu"))
     })
     $(".delete-item").click(function () {
         console.log("it worked")
         if(window.confirm("Are you sure?")){
             $(this).parent().parent().remove()
         }
+        localStorage.setItem("menu", $("#menu").html());
+        $("#menu-container").html(localStorage.getItem("menu"))
     })
     $(".add-cart").click(function () {
         if (localStorage.getItem("currentUser") == "Manager") {
@@ -58,10 +82,7 @@ function refreshButtons(){
         }
         else {
             var children = $(this).parent().children(".cart-info").clone();
-            console.log(children[0].innerHTML)
-            console.log(localStorage.getItem("cartItems"));
-            console.log(localStorage.getItem("cartItems").indexOf(children[0].innerHTML));
-            if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML) == -1) {
+            if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML+":") == -1) {
                 cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ";";
                 localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
                 buildCart(); 
@@ -107,6 +128,8 @@ function addNewItem(id){
         $(id).prepend(template)
         refreshButtons();
     }
+    localStorage.setItem("menu", $("#menu").html());
+    $("#menu").html(localStorage.getItem("menu"))
 }
 
 
@@ -263,15 +286,33 @@ function buildCart() {
         }
 
         else if (cartItems[i] == ";" && i != 0) {
+
             let price = document.createElement("p");
             price.innerHTML = cartItems.substring(0,i);
             $(price).css("width", "fit-content");
             itemDiv.append(price);
             cartItems = cartItems.substring(i+1);
+            let priceNumber = Number(price.innerHTML.substring(1));
+            priceNumber = Math.round(priceNumber*100.0) / 100;
+            total = Number(localStorage.getItem("totalCost"));
+            total = total + priceNumber;
+            total = Math.round(total*100.0) / 100;
+            total = Number(total.toFixed(2));
+            localStorage.setItem("totalCost", String(total));
+            $("#price").text("Total: $" + total);
+
             let removeBtn = document.createElement("div");
             removeBtn.classList.add("remove-btn");
             removeBtn.onclick = function () {
                 let itemName = $(this).parent().children()[0].innerHTML;
+                let itemPrice = Number($(this).parent().children()[1].innerHTML.substring(1));
+                itemPrice = Math.round(itemPrice*100.0) / 100;
+                total = Number(localStorage.getItem("totalCost"));
+                total = Math.round(total*100.0) / 100;
+                total = total - itemPrice;
+                total = Number(total.toFixed(2));
+                localStorage.setItem("totalCost", String(total));
+                $("#price").text("Total: $" + total);
                 cartItems = localStorage.getItem("cartItems");
                 let stringIndex = cartItems.indexOf(itemName);
                 console.log(itemName);
@@ -283,7 +324,6 @@ function buildCart() {
             };
             itemDiv.append(removeBtn);
 
-
             var quantityInput = document.createElement("input");
             quantityInput.type = "number";
             quantityInput.classList.add("item-quantity");
@@ -291,8 +331,15 @@ function buildCart() {
             quantityInput.min = "1";
             quantityInput.onchange = function () {
                 let itemPrice = Number($(this).parent().children()[1].innerHTML.substring(1));
+                itemPrice = Math.round(itemPrice*100.0) / 100;
+                total = total - itemPrice;
                 let totalItemPrice = itemPrice * $(this).val();
-                console.log(totalItemPrice);
+                total = Number(localStorage.getItem("totalCost"));
+                total = Math.round(total*100.0) / 100;
+                total = total + totalItemPrice;
+                total = Number(total.toFixed(2));
+                localStorage.setItem("totalCost", String(total));
+                $("#price").text("Total: $" + total);
             }
             itemDiv.append(quantityInput);
             $("#cart-div").append(itemDiv);
@@ -303,16 +350,13 @@ function buildCart() {
             i++;
         }
     }
-    if (localStorage.getItem("cartItems").length > 0) {
-
-    }
 }
 
 
 function checkout() {
     let cart = document.getElementById("cart-div");
-    $(cart).slideUp(250);
-    
+    $(cart).fadeOut(250);
+
 }
 
 // slider home screen
@@ -322,27 +366,29 @@ showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+    showSlides(slideIndex += n);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+    showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" inactive", "");
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" inactive", "");
     }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " inactive";
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " inactive";
 }
+
+
 

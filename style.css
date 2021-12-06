@@ -54,6 +54,11 @@ body {
     float: right;
 }
 
+#checkout-div {
+    display: none;
+    
+}
+
 /* this section is for the login */
 
 #home-body {
