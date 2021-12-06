@@ -73,7 +73,7 @@ function refreshButtons(){
         
     })
 
-}
+
     $(".set-special").click(function () {
         console.log("it worked")
         let specialInfo = $(this).parent().parent().children().clone()
@@ -85,7 +85,6 @@ function refreshButtons(){
         
         
     })
-
 }
 
 
