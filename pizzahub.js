@@ -63,20 +63,20 @@ function refreshButtons(){
         newPrice = Math.round(newPrice*100.0) / 100;
         $(this).parent().parent().find(".item-price").text("$" + newPrice)
         localStorage.setItem("menu", $("#menu").html());
-        $("#menu-container").html(localStorage.getItem("menu"))
+        $("#menu").html(localStorage.getItem("menu"))
 
     })
     $(".change-name").click(function(){
         let newName = prompt("Enter this item's new name:")
         $(this).parent().parent().find(".item-title").text(newName)
         localStorage.setItem("menu", $("#menu").html());
-        $("#menu-container").html(localStorage.getItem("menu"))
+        $("#menu").html(localStorage.getItem("menu"))
     })
     $(".change-description").click(function(){
         let newDesc = prompt("Enter this item's new description:")
         $(this).parent().parent().find(".item-desc").text(newDesc)
         localStorage.setItem("menu", $("#menu").html());
-        $("#menu-container").html(localStorage.getItem("menu"))
+        $("#menu").html(localStorage.getItem("menu"))
     })
     $(".delete-item").click(function () {
         console.log("it worked")
@@ -84,7 +84,7 @@ function refreshButtons(){
             $(this).parent().parent().remove()
         }
         localStorage.setItem("menu", $("#menu").html());
-        $("#menu-container").html(localStorage.getItem("menu"))
+        $("#menu").html(localStorage.getItem("menu"))
     })
     $(".add-cart").click(function () {
         if (localStorage.getItem("currentUser") == "Manager") {
