@@ -29,6 +29,7 @@ $(document).ready(function() {
             $("#sign-in-btn").css("display", "none");
         }
     }
+
     refreshButtons();
 })
 
@@ -71,14 +72,30 @@ function refreshButtons(){
         }
         
     })
+
 }
+    $(".set-special").click(function () {
+        console.log("it worked")
+        let specialInfo = $(this).parent().parent().children().clone()
+        let specialName = specialInfo[0].innerHTML;
+        let specialPrice =specialInfo[2].innerHTML;
+        console.log(specialName)
+        console.log(specialPrice)
+        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
+        
+        
+    })
+
+}
+
+
 
 
 function addNewItem(id){
     let newItemTitle = prompt("Enter the new item name:")
     let newItemPrice = prompt("Enter new item price:")
     let newItemDescription = prompt("Enter this item's description:")
-    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "")){
+    if(!(newItemTitle == "" || newItemDescription == "" || newItemPrice == "" || newItemTitle == null || newItemDescription == null || newItemPrice == null)){
         let template = $("#item-template").clone()
         let templateChildren = template.children()
         console.log(templateChildren)
@@ -92,6 +109,9 @@ function addNewItem(id){
         refreshButtons();
     }
 }
+
+
+
 
 
 
@@ -289,8 +309,41 @@ function buildCart() {
     }
 }
 
+
 function checkout() {
     let cart = document.getElementById("cart-div");
     $(cart).slideUp(250);
     
 }
+
+// slider home screen
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" inactive", "");
+    }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " inactive";
+}
+

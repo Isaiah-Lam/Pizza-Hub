@@ -354,47 +354,102 @@ input[type='submit'], label {
     text-shadow: 5px 5px 5px gray;
 }
 
-.specials-slider {
-    /* display: flex; */
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
     position: relative;
-    background-color: transparent;
-    /* padding-top: 6rem; */
-    padding-bottom: 10rem;
+    margin: 12rem 12rem 0 0;
+    float: right;
+}
+  
+/* Hide the images by default */
+.mySlides {
+    display:none;
 }
 
-.pic-slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
+#mySlides1 {
+    display: block;
 }
-
-.pic-slider img {
-    height: 100%;
-    border-radius: 50%;
-    margin-right: 20px;
+  
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 93%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
-
-.specials-slider h1 {
-    color: #f69314;
-    font: 40px "Playfair Display", serif;
-    margin-bottom: 15px;
+  
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+  
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+  
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: relative;
+    bottom: 8px;
+    width: 100%;
     text-align: center;
 }
 
-.pic-holder {
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
     position: relative;
-    background: transparent;
+    top: 0;
 }
-
-.slide-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.prev, .next {
-    font-size: 30px;
+  
+/* The dots/bullets/indicators */
+.dot {
     cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.inactive, .dot:hover {
+    background-color: #717171;
+}
+  
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
 
 
@@ -403,6 +458,7 @@ input[type='submit'], label {
     display: flex;
     justify-content: center;
     border-bottom: 0.1px solid rgba(119, 119, 119, 0.301);
+    clear: both;
 }
 
 .food-wrap {
@@ -467,17 +523,19 @@ input[type='submit'], label {
 }
 
 .btn:hover {
-    background-color:rgb(255, 163, 26)
+    background-color: #f69414;
+    color: white;
 }
 
 .btn a:visited {
-    color: silver;
+    color: white;
 }
 
 /* about section  */
 
 .home-about-us {
     background-color: #808080;
+    border: 3px solid black;
     text-align: center;
     margin: 0 20% 0 20%;
     padding: 30px 5% 30px 5%;
