@@ -34,6 +34,16 @@ $(document).ready(function() {
 })
 
 function refreshButtons(){
+    var special1 = localStorage.getItem("pizzaSpecial")
+    var special2 = localStorage.getItem("subsSpecial")
+    var special3 = localStorage.getItem("sidesSpecial")
+    var special4 = localStorage.getItem("dessertsSpecial")
+
+    $("#pizza-special").text(special1 + " 15% off")
+    $("#sub-special").text(special2 + " 15% off")
+    $("#sides-special").text(special3 + " 15% off")
+    $("#dessert-special").text(special4 + " 15% off")
+
     $(".change-price").click(function () {
         let newPrice = Number(prompt("New item Price."))
         $(this).parent().parent().find(".item-price").text("$" + newPrice)
@@ -83,11 +93,15 @@ function refreshButtons(){
         console.log(specialPrice)
         localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
         
+        window.alert(specialName + " set as special!")
         
+        specialPrice = Number(specialPrice.substring(1))
+        specialPrice = specialPrice * .85
+        specialPrice = specialPrice.toFixed(2)
+        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
+        $(this).parent().parent().find(".item-price").text(specialPrice)
     })
 }
-
-
 
 
 function addNewItem(id){
