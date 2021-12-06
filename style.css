@@ -106,8 +106,11 @@ body {
     color: black;
     transition: .3;
 }
-button:hover{
-    opacity: .5;
+.editor-btn {
+    opacity: .8;
+}
+.editor-btn:hover{
+    opacity: 1;
 }
 
 .cart-button {
@@ -344,14 +347,15 @@ input[type='submit'], label {
     font-family: sans-serif;
     font-size: 300px;
     margin-bottom: -105px;
-    text-shadow: 10px 5px 5px gray;
+    text-shadow: 10px 5px 5px black;
+    color: rgb(95, 95, 95);
 }
 .home-title {
     font-family: sans-serif;
     font-size: 85px;
     color: #f69314;
     margin-left: 50px;
-    text-shadow: 5px 5px 5px gray;
+    text-shadow: 5px 5px 5px black;
 }
 
 /* Slideshow container */
@@ -411,9 +415,12 @@ input[type='submit'], label {
 
 /* Number text (1/3 etc) */
 .numbertext {
+    display: flex;
     color: #f2f2f2;
-    font-size: 12px;
+    font-size: 20px;
     padding: 8px 12px;
+    justify-content: center;
+    align-items: center;
     position: relative;
     top: 0;
 }
@@ -534,13 +541,15 @@ input[type='submit'], label {
 /* about section  */
 
 .home-about-us {
-    background-color: #808080;
+    background-color: #303030;
     border: 3px solid black;
     text-align: center;
-    margin: 0 20% 0 20%;
     padding: 30px 5% 30px 5%;
-    border-radius: 15px;
+    letter-spacing: 1.25px;
+    line-height: 25px;
     font-family: sans-serif;
+    font-size: 20px;
+    color: #f69314;
 }
 
 .home-about-us h1 {
