@@ -7,7 +7,7 @@ var total;
 $(document).ready(function() {
     $("#cart-container").hide();
 
-    if (localStorage.getItem("menu") == null) {
+    if (localStorage.getItem("menu") == null || localStorage.getItem("menu") == "undefined") {
         localStorage.setItem("menu", $("#menu").html());
     }
     $("#menu").html(localStorage.getItem("menu"));
@@ -22,19 +22,24 @@ $(document).ready(function() {
 
         setUpCustomerPages();
 
-        if (localStorage.getItem("cartItems") == null) {
+        if (localStorage.getItem("cartItems") == null || localStorage.getItem("cartItems") == "undefined") {
             localStorage.setItem("cartItems", "");
         }
         cartItems = localStorage.getItem("cartItems");
 
-        if (localStorage.getItem("totalCost") == null) {
+        if (localStorage.getItem("totalCost") == null || localStorage.getItem("totalCost") == "undefined") {
             localStorage.setItem("totalCost", "0.00");
         }
         total = Number(localStorage.getItem("totalCost"));
 
-        buildCart();
+        if (localStorage.getItem("cart") == null || localStorage.getItem("cart") == "undefined") {
+            localStorage.setItem("cart", $("#cart-container").html());
+        }
 
-        if (localStorage.getItem("currentUser") == "" || localStorage.getItem("currentUser") == null) {
+
+        buildCart(false);
+
+        if (localStorage.getItem("currentUser") == "" || localStorage.getItem("currentUser") == null || localStorage.getItem("currentUser") == "undefined") {
             $("#sign-out-btn").css("display", "none");
             $("#sign-in-btn").css("display", "flex");
         }
@@ -86,20 +91,17 @@ function refreshButtons(){
         localStorage.setItem("menu", $("#menu").html());
         $("#menu").html(localStorage.getItem("menu"))
     })
-    $(".add-cart").click(function () {
+    $(".add-cart").click(function() {
+        console.log("clicked");
         if (localStorage.getItem("currentUser") == "Manager") {
             alert("Log in as customer to purchase items");
         }
         else {
             var children = $(this).parent().children(".cart-info").clone();
-            if (localStorage.getItem("cartItems").indexOf(children[0].innerHTML+":") == -1) {
-                cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ";";
-                localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
-                buildCart(); 
-            }
-            else {
-                alert("That item is already in your cart. Open cart to adjust quantity.");
-            }
+            cartItems = cartItems + children[0].innerHTML + ":" + children[1].innerHTML + ";";
+            localStorage.setItem("cartItems", localStorage.getItem("cartItems")+cartItems);
+            localStorage.setItem("cart", $("#cart-container").html());
+            buildCart(true); 
         }
         
     })
@@ -127,6 +129,7 @@ function refreshButtons(){
         $(this).parent().parent().find(".item-price").text(specialPrice)
         $(this).parent().parent().find(".item-price").attr("id", "current-Special")
     })
+
 }
 
 
@@ -270,11 +273,6 @@ function setUpManagerPages() {
     });
 }
 
-function openMenu() {
-    window.open('menu.html', '_self');
-    setUpManagerPages();
-}
-
 function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");
@@ -282,15 +280,10 @@ function setUpCustomerPages() {
 }
 
 function openCart() {
-    if ($("#cart-container").css("display") == "block") {
-        $("#cart-container").hide();
-    }
-    else {
-        $("#cart-container").show();
-    }
+    $("#cart-container").toggle();
 }
 
-function buildCart() {
+function buildCart(newItem) {
     let i = 0;
     while (cartItems != ";" && i < cartItems.length) {
         if (cartItems[i] == ":" && i != 0) {
@@ -311,15 +304,17 @@ function buildCart() {
             $(price).css("width", "fit-content");
             itemDiv.append(price);
             cartItems = cartItems.substring(i+1);
-            let priceNumber = Number(price.innerHTML.substring(1));
-            priceNumber = Math.round(priceNumber*100.0) / 100;
             total = Number(localStorage.getItem("totalCost"));
-            total = total + priceNumber;
-            total = Math.round(total*100.0) / 100;
-            total = Number(total.toFixed(2));
-            localStorage.setItem("totalCost", String(total));
+            if (newItem) {
+                let priceNumber = Number(price.innerHTML.substring(1));
+                priceNumber = Math.round(priceNumber*100.0) / 100;
+                total = total + priceNumber;
+                total = Math.round(total*100.0) / 100;
+                total = Number(total.toFixed(2));
+                localStorage.setItem("totalCost", String(total));
+            }
             $("#price").text("Total: $" + total);
-
+            
             let removeBtn = document.createElement("div");
             removeBtn.classList.add("remove-btn");
             removeBtn.onclick = function () {
@@ -339,28 +334,8 @@ function buildCart() {
                 cartItems = cartItems.substring(0,stringIndex) + cartItems.substring(cartItems.indexOf(";",stringIndex)+1);
                 localStorage.setItem("cartItems", cartItems);
                 $(this).parent().remove();
-                
-            };
-            itemDiv.append(removeBtn);
-
-            var quantityInput = document.createElement("input");
-            quantityInput.type = "number";
-            quantityInput.classList.add("item-quantity");
-            quantityInput.value = "1";
-            quantityInput.min = "1";
-            quantityInput.onchange = function () {
-                let itemPrice = Number($(this).parent().children()[1].innerHTML.substring(1));
-                itemPrice = Math.round(itemPrice*100.0) / 100;
-                total = total - itemPrice;
-                let totalItemPrice = itemPrice * $(this).val();
-                total = Number(localStorage.getItem("totalCost"));
-                total = Math.round(total*100.0) / 100;
-                total = total + totalItemPrice;
-                total = Number(total.toFixed(2));
-                localStorage.setItem("totalCost", String(total));
-                $("#price").text("Total: $" + total);
             }
-            itemDiv.append(quantityInput);
+            itemDiv.append(removeBtn);
             $("#cart-div").append(itemDiv);
             i = 0;
         }
@@ -370,6 +345,7 @@ function buildCart() {
         }
     }
 }
+
 
 
 function checkout() {
