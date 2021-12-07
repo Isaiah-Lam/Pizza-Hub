@@ -404,5 +404,12 @@ function showSlides(n) {
     dots[slideIndex-1].className += " inactive";
 }
 
+// application
 
+// $(function(){
+//     $('#gMonth2').change(function(){
+//       var month = $(this).val();
+//       $('#gMonth1').val(month);
+//     });
+// });
 
