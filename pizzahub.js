@@ -106,21 +106,26 @@ function refreshButtons(){
 
 
     $(".set-special").click(function () {
-        console.log("it worked")
         let specialInfo = $(this).parent().parent().children().clone()
         let specialName = specialInfo[0].innerHTML;
-        let specialPrice =specialInfo[2].innerHTML;
+        let originalPrice = specialInfo[2].innerHTML;
+        $(this).parent().parent().parent().find("#current-special").text(localStorage.getItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price"))
+        $(this).parent().parent().find("#current-special").attr("id", "")
         console.log(specialName)
-        console.log(specialPrice)
+        console.log(originalPrice)
+      
+
         localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
         
         window.alert(specialName + " set as special!")
         
-        specialPrice = Number(specialPrice.substring(1))
+        specialPrice = Number(originalPrice.substring(1))
         specialPrice = specialPrice * .85
         specialPrice = specialPrice.toFixed(2)
         localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
+        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price", originalPrice)
         $(this).parent().parent().find(".item-price").text(specialPrice)
+        $(this).parent().parent().find(".item-price").attr("id", "current-Special")
     })
 }
 
