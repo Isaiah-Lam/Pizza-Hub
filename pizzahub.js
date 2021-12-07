@@ -69,6 +69,7 @@ function refreshButtons(){
         $(this).parent().parent().find(".item-price").text("$" + newPrice)
         localStorage.setItem("menu", $("#menu").html());
         $("#menu").html(localStorage.getItem("menu"))
+        refreshButtons();
 
     })
     $(".change-name").click(function(){
@@ -76,12 +77,14 @@ function refreshButtons(){
         $(this).parent().parent().find(".item-title").text(newName)
         localStorage.setItem("menu", $("#menu").html());
         $("#menu").html(localStorage.getItem("menu"))
+        refreshButtons();
     })
     $(".change-description").click(function(){
         let newDesc = prompt("Enter this item's new description:")
         $(this).parent().parent().find(".item-desc").text(newDesc)
         localStorage.setItem("menu", $("#menu").html());
         $("#menu").html(localStorage.getItem("menu"))
+        refreshButtons();
     })
     $(".delete-item").click(function () {
         console.log("it worked")
@@ -90,6 +93,7 @@ function refreshButtons(){
         }
         localStorage.setItem("menu", $("#menu").html());
         $("#menu").html(localStorage.getItem("menu"))
+        refreshButtons();
     })
     $(".add-cart").click(function() {
         console.log("clicked");
@@ -108,26 +112,31 @@ function refreshButtons(){
 
 
     $(".set-special").click(function () {
+
         let specialInfo = $(this).parent().parent().children().clone()
         let specialName = specialInfo[0].innerHTML;
         let originalPrice = specialInfo[2].innerHTML;
-        $(this).parent().parent().parent().find("#current-special").text(localStorage.getItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price"))
-        $(this).parent().parent().find("#current-special").attr("id", "")
-        console.log(specialName)
-        console.log(originalPrice)
-      
-
-        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
-        
-        window.alert(specialName + " set as special!")
-        
-        specialPrice = Number(originalPrice.substring(1))
-        specialPrice = specialPrice * .85
-        specialPrice = specialPrice.toFixed(2)
-        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
-        localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price", originalPrice)
-        $(this).parent().parent().find(".item-price").text(specialPrice)
-        $(this).parent().parent().find(".item-price").attr("id", "current-Special")
+        if(specialName ==  $(this).parent().parent().parent().find("#current-special-title").text()){
+            alert("This item is already marked as the special.")
+        }
+        else{
+            $(this).parent().parent().parent().find("#current-special").text(localStorage.getItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price"))
+            $(this).parent().parent().parent().find("#current-special").removeAttr("id")
+            $(this).parent().parent().parent().find("#current-special-title").removeAttr("id")
+            localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "Special", specialName)
+            window.alert(specialName + " set as special!")
+            specialPrice = Number(originalPrice.substring(1))
+            specialPrice = specialPrice * .85
+            specialPrice = specialPrice.toFixed(2)
+            localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
+            localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price", originalPrice)
+            $(this).parent().parent().find(".item-price").text(specialPrice)
+            $(this).parent().parent().find(".item-price").attr("id", "current-special")
+            $(this).parent().parent().find(".item-title").attr("id", "current-special-title")
+            localStorage.setItem("menu", $("#menu").html());
+            $("#menu").html(localStorage.getItem("menu"))
+            refreshButtons();
+        }
     })
 
 }
