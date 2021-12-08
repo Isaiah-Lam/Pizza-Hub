@@ -1,3 +1,13 @@
+// keyarray = ["ps", "psp", "psop"]
+// valuearray = ["hp", "p"]
+
+// for (let i = 0; i <keyarray.length; i++) {
+//     if (localStorage.getItem(keyarray[i]) == null) {
+//         localStorage.setItem(keyarray[i], valuearray[i])
+//     }
+// }
+
+
 
 // localStorage.clear();
 
@@ -134,7 +144,7 @@ function refreshButtons(){
             $(this).parent().parent().find(".item-price").attr("id", "current-special")
             $(this).parent().parent().find(".item-title").attr("id", "current-special-title")
             localStorage.setItem("menu", $("#menu").html());
-            $("#menu").html(localStorage.getItem("menu"))
+            $("#menu").html(localStorage.getItem("menu"));
             refreshButtons();
         }
     })
@@ -359,7 +369,11 @@ function buildCart(newItem) {
 
 function checkout() {
     let cart = document.getElementById("cart-div");
-    $(cart).fadeOut(250);
+    $(cart).fadeOut(500);
+    $("#checkout-btn").delay(500).text("Back to cart");
+    $("#checkout-div").delay(500).slideDown(500);
+
+
 
 }
 
@@ -392,6 +406,13 @@ function showSlides(n) {
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " inactive";
+}
+
+function paymentClick(select, deselect) {
+    $(deselect).fadeTo(500, 0);
+    $(select).fadeTo(500, 1);
+    $(deselect + "-label").removeClass("selected");
+    $(select + "-label").addClass("selected");
 }
 
 // application
