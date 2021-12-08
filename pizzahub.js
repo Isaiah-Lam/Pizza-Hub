@@ -7,6 +7,21 @@ var total;
 $(document).ready(function() {
     $("#cart-container").hide();
 
+    let keyArray = ["pizzaSpecial", "pizzaspecial-price","pizzaspecial-original-price",
+                    "subsSpecial","subsspecial-price", "subsspecial-original-price", 
+                    "sidesSpecial", "sidesspecial-price", "sidesspecial-original-price", 
+                    "dessertsSpecial", "dessertsspecial-price", "dessertsspecial-original-price"];
+    let valueArray = ["H.U.B Pizza", "84.99", "$99.99",
+                      "Cheesesteak","7.64","$10.99",
+                      "Wings", "7.64","$10.99",
+                      "Handful of Whipped Cream", "8.49", "9.99"];
+
+    for(let i = 0; i < keyArray.length; i++){
+        if(localStorage.getItem("menu") == null || localStorage.getItem("menu") == "undefined"){
+            localStorage.setItem(keyArray[i], valueArray[i]);
+        }
+    }
+
     if (localStorage.getItem("menu") == null || localStorage.getItem("menu") == "undefined") {
         localStorage.setItem("menu", $("#menu").html());
     }
