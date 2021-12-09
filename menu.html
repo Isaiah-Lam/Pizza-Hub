@@ -34,26 +34,34 @@
                 </div>
                 <div id="checkout-flex">
                     <div id="cash" class="payment-type">
+                        <div class="field-container">
+                            <label class="card-info-label" for="name-cash">Name</label>
+                            <input class="card-input" id="name-cash" type="text">
+                        </div>
                         <p><em>*No change given. Extra Money will be kept as tips.*</em></p>
                         <button type="button" id="place-order-cash" class="finish-checkout cart-btn" onclick="finishCheckout('#cash')">Place Order</button>
                     </div>
                     <div id="card" class="payment-type">
                         <div class="form">
                             <div class="field-container">
-                                <label class="card-info-label" for="name">Name On Card</label>
-                                <input class="card-input" id="name" type="text">
+                                <label class="card-info-label" for="name-card">Name</label>
+                                <input class="card-input" id="name-card" type="text">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="cardnumber">Card Number</label>
-                                <input class="card-input" id="cardnumber" maxlength="16" type="text" pattern="[0-9]*" inputmode="numeric">
+                                <input class="card-input" id="cardnumber" maxlength="16" type="text">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="expirationdate">Expiration (mm/yy)</label>
-                                <input class="card-input" id="expirationdate" maxlength="5" type="text" pattern="[0-9]*" inputmode="numeric">
+                                <input class="card-input" id="expirationdate" maxlength="5" type="text">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="securitycode">Security Code</label>
-                                <input class="card-input" id="securitycode" maxlength="3" type="text" pattern="[0-9]*" inputmode="numeric">
+                                <input class="card-input" id="securitycode" maxlength="3" type="text">
+                            </div>
+                            <div class="field-container">
+                                <label class="card-info-label" for="tip">Tip %</label>
+                                <input class="card-input" id="tip" type="number">
                             </div>
                             <button type="button" id="place-order-card" class="finish-checkout cart-btn" onclick="finishCheckout('#card')">Place Order</button>
                         </div>
@@ -71,7 +79,7 @@
             <a class="active" href="application.html" id="apply-tab">Apply</a>
             <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
             <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
-            <button type="button" class="cart-button active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
+            <button type="button" class="cart-tab active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
         </section>
 
         <div id="menu-title">
@@ -84,9 +92,9 @@
                 <h2 class="category-title" onclick="openCategory('#pizza','#pizza-items')">Pizzas<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/pizza.gif" alt="Pizza"></h2>
                 <div class="item-div" id="pizza-items">
                     <div class="item" id="item-template">
-                        <h3 class="item-title cart-info" >H.U.B. Pizza</h3>
+                        <h3 class="item-title cart-info" id="current-special-title">H.U.B. Pizza</h3>
                         <p class="item-desc">Our signature pizza, with ham, uranium, and bacon.</p>
-                        <p class="item-price cart-info">$99.99</p>
+                        <p class="item-price cart-info" id="current-special">$84.99</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -142,9 +150,9 @@
                 <h2 class="category-title" onclick="openCategory('#subs','#sub-items')">Subs<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/sub.png" alt="Sub"></h2>
                 <div class="item-div" id="sub-items">
                     <div class="item">
-                        <h3 class="item-title cart-info">Cheesesteak</h3>
+                        <h3 class="item-title cart-info" id="current-special-title">Cheesesteak</h3>
                         <p class="item-desc">Traditional cheesesteak, with premium beef and grilled onions, and provolone cheese.</p>
-                        <p class="item-price cart-info">$10.99</p>
+                        <p class="item-price cart-info" id="current-special">$9.34</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -200,9 +208,9 @@
                 <h2 class="category-title" onclick="openCategory('#sides','#side-items')">Sides<ion-icon class="ion-icon" name="caret-down"></ion-icon><img class="menu-pic" src="links&images/fries.png" alt="French Fries"></h2>
                 <div class="item-div" id="side-items">
                     <div class="item">
-                        <h3 class="item-title cart-info" >Wings</h3>
+                        <h3 class="item-title cart-info" id="current-special-title">Wings</h3>
                         <p class="item-desc">6 traditional wings with your choice of Mild, Hot, BBQ, or Garlic sauce.</p>
-                        <p class="item-price cart-info" >$8.99</p>
+                        <p class="item-price cart-info" id="current-special">$7.64</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
@@ -284,9 +292,9 @@
                         </div>
                     </div>
                     <div class="item">
-                        <h3 class="item-title cart-info">Handful of Whipped Cream</h3>
+                        <h3 class="item-title cart-info" id="current-special-title">Handful of Whipped Cream</h3>
                         <p class="item-desc">One of our employees will spray a mound of whipped cream into your hand.</p>
-                        <p class="item-price cart-info">$9.99</p>
+                        <p class="item-price cart-info" id="current-special">$8.49</p>
                         <button type="button" class="add-cart">Add to Cart</button>
                         <div class="edit-item-btns">
                             <button type="button" class="set-special editor-btn">Set as Special</button>
