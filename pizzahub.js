@@ -12,12 +12,12 @@ $(document).ready(function() {
                     "sidesSpecial", "sidesspecial-price", "sidesspecial-original-price", 
                     "dessertsSpecial", "dessertsspecial-price", "dessertsspecial-original-price"];
     let valueArray = ["H.U.B Pizza", "84.99", "$99.99",
-                      "Cheesesteak","7.64","$10.99",
-                      "Wings", "7.64","$10.99",
-                      "Handful of Whipped Cream", "8.49", "9.99"];
+                      "Cheesesteak","9.34","$10.99",
+                      "Wings", "7.64","$8.99",
+                      "Handful of Whipped Cream", "8.49", "$9.99"];
 
     for(let i = 0; i < keyArray.length; i++){
-        if(localStorage.getItem("menu") == null || localStorage.getItem("menu") == "undefined"){
+        if(localStorage.getItem(keyArray[i]) == null || localStorage.getItem(keyArray[i]) == "undefined"){
             localStorage.setItem(keyArray[i], valueArray[i]);
         }
     }
@@ -65,6 +65,7 @@ $(document).ready(function() {
     }
 
     refreshButtons();
+
 })
 
 function refreshButtons(){
@@ -145,7 +146,7 @@ function refreshButtons(){
             specialPrice = specialPrice.toFixed(2)
             localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
             localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price", originalPrice)
-            $(this).parent().parent().find(".item-price").text(specialPrice)
+            $(this).parent().parent().find(".item-price").text("$" + specialPrice)
             $(this).parent().parent().find(".item-price").attr("id", "current-special")
             $(this).parent().parent().find(".item-title").attr("id", "current-special-title")
             localStorage.setItem("menu", $("#menu").html());
@@ -177,12 +178,6 @@ function addNewItem(id){
     localStorage.setItem("menu", $("#menu").html());
     $("#menu").html(localStorage.getItem("menu"))
 }
-
-
-
-
-
-
 
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
@@ -409,18 +404,21 @@ function finishCheckout(paymentType) {
     console.log("Time: " + time);
     console.log("Hours: " + hours);
     console.log("Minutes: " + minutes);
-    if (paymentType == "#card") {
-        let fields = $(paymentType).find(".card-input");
-        console.log(fields);
-        for (let j = 0; j < fields.length; j++) {
-            console.log(fields[j].value);
-            if (fields[j].value == "" || fields[j].value == null) {
-                infoComplete = false;
-            }
+    let fields = $(paymentType).find("input");
+    console.log(fields);
+    for (let j = 0; j < fields.length-1; j++) {
+        if (fields[j].value == "" || fields[j].value == null) {
+            infoComplete = false;
         }
     }
+    console.log(total);
+    let tip = fields[fields.length-1].value;
+    console.log(tip);
+    total = total + (total * (tip/100.0));
+    total = Number(total.toFixed(2));
+    console.log(total);
     if (infoComplete) {
-        alert("Thank you for your order. It will be ready in " + hours + " hours and " + minutes + " minutes.");
+        alert("Thank you for your order. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).");
         localStorage.setItem("cartItems", "");
         cartItems = localStorage.getItem("cartItems");
         localStorage.setItem("totalCost", "0.00");

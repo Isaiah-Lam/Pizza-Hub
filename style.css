@@ -70,7 +70,9 @@ h6{
 .cart-btn {
     padding: 5px;
     background-color: black;
-    color: #ffa31a;
+    color: white;
+    border: 1px solid #ffa31a;
+    font-size: large;
 }
 
 #checkout-btn {
@@ -100,12 +102,15 @@ h6{
 }
 
 .checkout-label {
-    border: 1px solid black;
+    border: 1px solid orange;
     padding: 5px;
+    background-color: black;
+    color: white;
 }
 
 .checkout-label:hover, .checkout-label:active {
-    background-color: gray;
+    background-color: white;
+    color: black;
 }
 
 .payment-type {
@@ -115,8 +120,8 @@ h6{
 }
 
 .selected {
-    background-color: black;
-    color: #ffa31a;
+    background-color: #ffa31a;
+    color: white;
 }
 
 .finish-checkout {
@@ -183,7 +188,7 @@ h6{
     opacity: 1;
 }
 
-.cart-button {
+.cart-tab {
     position: absolute;
     right: 0;
     margin-right: 5%;
@@ -533,7 +538,6 @@ input[type='submit'], label {
     to {opacity: 1}
 }
 
-
 .food-pics {
     padding: 100px 0;
     display: flex;
@@ -547,6 +551,20 @@ input[type='submit'], label {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+}
+
+.food-wrap::-webkit-scrollbar {
+    height: 10px;
+}
+
+.food-wrap::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.food-wrap::-webkit-scrollbar-thumb {
+    background-color: rgb(119, 119, 119);
+    border: 1px solid black;
+    border-radius: 100px;
 }
 
 .food-block {
@@ -608,7 +626,7 @@ input[type='submit'], label {
     color: white;
 }
 
-.btn a:visited {
+.btn a:visited, .btn a:link, .btn a:hover, .btn a:active {
     color: white;
 }
 
