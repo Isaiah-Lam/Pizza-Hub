@@ -17,7 +17,6 @@ body {
 
 #cart-container {
     z-index: 10;
-    background-color: white;
     width: 75vw;
     height: 85vh;
     position: absolute;
@@ -25,7 +24,8 @@ body {
     left: 0;
     right: 0;
     margin: auto;
-    color: black;
+    color: orange;
+    background-color: #1b1b1b;
     padding: 5px 20px;
 }
 
@@ -33,9 +33,28 @@ body {
     height: 80%;
     overflow-y: scroll;
 }
+h5{
+    font-size: 1.5rem;
+    color: black;
+    
+}
+h6{
+    font-size: 1.5rem;
+    color: black;
+}
+.cart-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
 .cart-item {
-    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1% 0;
+    background-color: orange;
+    border: 1px solid black;
     height: 20%;
     clear: both;
 }
