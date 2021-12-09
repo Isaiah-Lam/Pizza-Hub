@@ -763,67 +763,113 @@ iframe {
 
 /* application page  */
 
+ul {
+    display: block;
+    list-style-type: none;
+}
+
 .application {
     margin-top: 4rem;
     padding: 1rem;
 }
 
-ul {
-    list-style-type: none;
-}
-
-/* Add padding to containers */
 .container {
     background-color: rgb(165, 165, 165);
     border-radius: 20px;
     padding: 1rem 1rem;
     border: 2px solid black;
+    width: 60%;
+    margin: 0 auto;
 }
-  
-/* Full-width input fields */
-/* input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-}
-  
-input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-} */
-  
-/* Overwrite default styles of hr */
-/* hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-} */
-  
-/* Set a style for the submit/register button */
-/* .registerbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-}
-  
-.registerbtn:hover {
-    opacity:1;
-}
-   */
-/* Add a blue text color to links */
-/* a {
-    color: dodgerblue;
-}
-   */
-/* Set a grey background color and center the text of the "sign in" section */
-/* .signin {
-    background-color: #f1f1f1;
+
+.container h1, p {
     text-align: center;
+}
+
+hr {
+    border: 1px solid #f69314;
+}
+
+.full-name {
+    padding-top: 1rem;
+    display: flex;
+    width: 100%;
+}
+
+.full-name b {
+    padding-left: 1rem;
+}
+
+#fname {
+    margin-left: 1rem;
+    width: 15%;
+    margin-top: 5px;
+}
+
+.dob-app {
+    display: flex;
+    flex-direction: column;
+    /* float: left; */
+    /* margin: 2rem 0 0 5rem; */
+    width: 33%;
+}
+
+.dob-app label {
+    padding-bottom: 1rem;
+}
+
+.dob {
+    align-items: center;
+    padding-bottom: 2.3rem;
+}
+
+.email-app {
+    padding-bottom: 2.3rem;
+}
+
+.address-app {
+    display: flex;
+    /* float: right; */
+    width: 33%;
+}
+
+.address {
+    margin: 3rem 28rem 0 0;
+    align-items: center;
+}
+
+#street {
+    width: 250%;
+    margin-top: 5px;
+}
+
+#position {
+    clear: both;
+}
+
+.form-line1 {
+    margin: 2rem 38%;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-line3 {
+    display: flex;
+}
+
+.name-div {
+    display: block;
+    width: 40%;
+}
+
+.form-input {
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+}
+
+/* .form-sub-label-container input, .form-sub-label-container label {
+    display: flex;
+    justify-content: flex-end;
 } */
