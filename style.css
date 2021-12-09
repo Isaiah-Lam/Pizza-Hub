@@ -47,7 +47,9 @@ h6{
     align-items: center;
     justify-content: space-evenly;
 }
-
+.home-display {
+    display: flex;
+}
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -400,10 +402,10 @@ input[type='submit'], label {
 
 /* home page */
 
-#manager-special {
+/* #manager-special {
     margin-top: 5rem;
     float: left;
-}
+} */
 
 .home-special-title {
     font-family: sans-serif;
@@ -420,14 +422,12 @@ input[type='submit'], label {
     text-shadow: 5px 5px 5px black;
 }
 
-/* Slideshow container */
-.slideshow-container {
-    max-width: 1000px;
-    width:300px;
-    position: relative;
-    margin: 12rem 12rem 0 0;
-    float: right;
-}
+
+ .slideshow-container {
+    max-width: 300px;
+    margin-top: 15%;
+    margin-left: 5%;
+} 
   
 /* Hide the images by default */
 .mySlides {
@@ -441,7 +441,7 @@ input[type='submit'], label {
 /* Next & previous buttons */
 .prev, .next {
     cursor: pointer;
-    position: absolute;
+    /* position: absolute; */
     top: 93%;
     width: auto;
     margin-top: -22px;
@@ -452,6 +452,11 @@ input[type='submit'], label {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+}
+#arrows-and-slides{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
 }
   
 /* Position the "next button" to the right */
