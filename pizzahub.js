@@ -1,13 +1,3 @@
-// keyarray = ["ps", "psp", "psop"]
-// valuearray = ["hp", "p"]
-
-// for (let i = 0; i <keyarray.length; i++) {
-//     if (localStorage.getItem(keyarray[i]) == null) {
-//         localStorage.setItem(keyarray[i], valuearray[i])
-//     }
-// }
-
-
 
 // localStorage.clear();
 
@@ -323,7 +313,7 @@ function buildCart(newItem) {
         if (cartItems[i] == ":" && i != 0) {
             var itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
-            let name = document.createElement("h2");
+            let name = document.createElement("h6");
             name.innerHTML = cartItems.substring(0,i);
             $(name).css("width", "fit-content");
             itemDiv.append(name);
@@ -333,7 +323,7 @@ function buildCart(newItem) {
 
         else if (cartItems[i] == ";" && i != 0) {
 
-            let price = document.createElement("p");
+            let price = document.createElement("h5");
             price.innerHTML = cartItems.substring(0,i);
             $(price).css("width", "fit-content");
             itemDiv.append(price);
