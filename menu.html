@@ -17,10 +17,11 @@
             <h1 style="margin: 10px auto; width: fit-content; border-bottom: 1px solid gray;">Your Cart</h1>
             <div id="cart-div"></div>
             <div class="cart-bottom">
-            <h1 id="price">Total: $0.00</h1>
-            <button type="button" id="checkout-btn" onclick="checkout()">Checkout</button>
+                <h1 id="price">Total: $0.00</h1>
+                <button type="button" id="checkout-btn" class="cart-btn" onclick="checkout(this.innerHTML)">Checkout</button>
             </div>
            
+
             <div id="checkout-div">
                 <h3 style="width: fit-content; margin: 0 auto;">Choose payment option:</h3>
                 <div id="checkout-labels">
@@ -34,6 +35,7 @@
                 <div id="checkout-flex">
                     <div id="cash" class="payment-type">
                         <p><em>*No change given. Extra Money will be kept as tips.*</em></p>
+                        <button type="button" id="place-order-cash" class="finish-checkout cart-btn" onclick="finishCheckout('#cash')">Place Order</button>
                     </div>
                     <div id="card" class="payment-type">
                         <div class="form">
@@ -53,8 +55,8 @@
                                 <label class="card-info-label" for="securitycode">Security Code</label>
                                 <input class="card-input" id="securitycode" maxlength="3" type="text" pattern="[0-9]*" inputmode="numeric">
                             </div>
+                            <button type="button" id="place-order-card" class="finish-checkout cart-btn" onclick="finishCheckout('#card')">Place Order</button>
                         </div>
-                            
                     </div>
                 </div>
             </div>
@@ -66,7 +68,7 @@
             </div>
             <a class="active" href="index.html">Home</a>
             <a class="active" href="menu.html">Menu</a>
-            <a class="active" href="application.html">Apply</a>
+            <a class="active" href="application.html" id="apply-tab">Apply</a>
             <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
             <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
             <button type="button" class="cart-button active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>

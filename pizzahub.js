@@ -295,12 +295,14 @@ function setUpManagerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "block");
     });
+    $("#apply-tab").css("display", "none");
 }
 
 function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");
     });
+    $("#apply-tab").css("display", "flex");
 }
 
 function openCart() {
@@ -308,6 +310,12 @@ function openCart() {
 }
 
 function buildCart(newItem) {
+    if (cartItems.length > 0) {
+        $("#checkout-btn").css("visibility", "visible");
+    }
+    else {
+        $("#checkout-btn").css("visibility", "hidden");
+    }
     let i = 0;
     while (cartItems != ";" && i < cartItems.length) {
         if (cartItems[i] == ":" && i != 0) {
@@ -372,14 +380,59 @@ function buildCart(newItem) {
 
 
 
-function checkout() {
-    let cart = document.getElementById("cart-div");
-    $(cart).fadeOut(500);
-    $("#checkout-btn").delay(500).text("Back to cart");
-    $("#checkout-div").delay(500).slideDown(500);
+function checkout(btnText) {
+    if (btnText == "Checkout") {
+        $("#cart-div").fadeOut(500);
+        $("#checkout-btn").delay(500).text("Back to cart");
+        $("#checkout-div").delay(500).slideDown(500);
+    }
+    else {
+        $("#checkout-div").slideUp(500);
+        $("#checkout-btn").delay(500).text("Checkout");
+        $("#cart-div").delay(500).fadeIn(500);
+    }
+    
+}
 
-
-
+function finishCheckout(paymentType) {
+    let infoComplete = true;
+    let items = localStorage.getItem("cartItems");
+    let numItems = 0;
+    for (let i = 0; i < items.length; i++) {
+        if (items[i] == ";") {
+            numItems++;
+        }
+    }
+    let time = Math.round(total*numItems);
+    let hours = Math.floor(time / 60);
+    let minutes = time % 60;
+    console.log("Time: " + time);
+    console.log("Hours: " + hours);
+    console.log("Minutes: " + minutes);
+    if (paymentType == "#card") {
+        let fields = $(paymentType).find(".card-input");
+        console.log(fields);
+        for (let j = 0; j < fields.length; j++) {
+            console.log(fields[j].value);
+            if (fields[j].value == "" || fields[j].value == null) {
+                infoComplete = false;
+            }
+        }
+    }
+    if (infoComplete) {
+        alert("Thank you for your order. It will be ready in " + hours + " hours and " + minutes + " minutes.");
+        localStorage.setItem("cartItems", "");
+        cartItems = localStorage.getItem("cartItems");
+        localStorage.setItem("totalCost", "0.00");
+        total = Number(localStorage.getItem("totalCost"));
+        buildCart();
+        checkout();
+        window.location.href = "index.html";
+    }
+    else {
+        alert("Please enter the required information.")
+    }
+    
 }
 
 // slider home screen
