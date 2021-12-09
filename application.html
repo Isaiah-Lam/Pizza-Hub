@@ -27,89 +27,92 @@
 
         <div class="application">
             <div class="container">
-
                 <h1>Application</h1>
                 <p>Please fill in this form to apply for a position.</p>
                 <hr>
                 <ul>
                     <li class="full-name">
-                        <label for="fname"><b>First Name</b></label>
+                        <label for="fname"><b>First Name:</b></label>
                         <input type="text" placeholder="Enter first name" name="firstname" id="fname" required>
 
-                        <label for="mname"><b>Middle Name</b></label>
-                        <input type="text" placeholder="Enter middle name" name="middlename" id="mname" required>
+                        <label for="mname"><b>Middle Name:</b></label>
+                        <input type="text" placeholder="Enter middle name" name="middlename" id="fname" required>
 
-                        <label for="lname"><b>Last Name</b></label>
-                        <input type="text" placeholder="Enter last name" name="lastname" id="lname" required>
+                        <label for="lname"><b>Last Name:</b></label>
+                        <input type="text" placeholder="Enter last name" name="lastname" id="fname" required>
                     </li>
                 
-                    <li class="dob">
-                        <form action="/action_page.php">
-                            <label for="birthday">Birthday:</label>
-                            <input type="date" id="birthday" name="birthday">
-                            <input type="submit">
-                        </form>
+                    <li class="dob-app">
+                        <div class="dob">
+                            <form action="/action_page.php">
+                                <label for="birthday"><b>Birthday:</b></label>
+                                <input type="date" id="birthday" name="birthday">
+                                <input type="submit">
+                            </form>
+                        </div>
+
+                        <div class="email-app">
+                            <label for="email"><b>Email Address:</b></label>
+                            <input type="text" placeholder="Enter Email" name="email" id="email" required> 
+                            <small>example@example.com</small><br><br>
+                        </div>
+
+                        <div class="phone-app">
+                            <form action="/action_page.php">
+                                <label for="phone"><b>Enter a phone number:</b></label>
+                                <input type="tel" id="phone" size= "13" minlength="10" maxlength="13" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+                                <small>Format: 123-456-7890</small>
+                                <input type="submit">
+                            </form>
+                        </div>
                     </li>
 
-                    <li class="address">
-                        <p>Current Address</p>
-                        <form action="/action_page.php">
-                            <label for="fname">Street Address:</label>
-                            <input type="text" id="fname" name="fname"><br><br>
-
-                            <label for="fname">Street Address Line 2:</label>
-                            <input type="text" id="fname" name="fname"><br><br>
-
-                            <label for="lname">City:</label>
-                            <input type="text" id="lname" name="lname"><br><br>
-
-                            <label for="lname">State / Province:</label>
-                            <input type="text" id="lname" name="lname"><br><br>
-
-                            <label for="lname">Postal / Zip Code:</label>
-                            <input type="text" id="lname" name="lname"><br><br>
-
-                            <input type="submit" value="Submit">
-                        </form>
-                    </li>
-
-                    <li class="email-app">
-                        <label for="email"><b>Email Address:</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" id="email" required> 
-                        <small>example@example.com</small><br><br>
-                    </li>
-
-                    <li class="phone-app">
-                        <form action="/action_page.php">
-                            <label for="phone">Enter a phone number:</label><br><br>
-                            <input type="tel" id="phone" size= "13" minlength="10" maxlength="13" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
-                            <small>Format: 123-456-7890</small><br><br>
-                            <input type="submit">
-                        </form>
+                    <li class="address-app">
+                        <div class="address">
+                            <p><b>Current Address:</b></p>
+                            <form action="/action_page.php">
+                                <label for="street">Street Address:</label>
+                                <input type="text" id="street" name="street"><br><br>
+    
+                                <label for="street">Street Address Line 2:</label>
+                                <input type="text" id="street" name="street"><br><br>
+    
+                                <label for="city">City:</label>
+                                <input type="text" id="street" name="street"><br><br>
+    
+                                <label for="State">State / Province:</label>
+                                <input type="text" id="street" name="street"><br><br>
+    
+                                <label for="zip">Postal / Zip Code:</label>
+                                <input type="text" id="street" name="street"><br><br>
+    
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
                     </li>
 
                     <!-- position applied -->
-                    <li class="form-line" data-type="control_dropdown" id="id_14">
-                        <label class="form-label form-label-top form-label-auto" id="label_14" for="input_14"> Position Applied </label>
-                        <div id="cid_14" class="form-input-wide" data-layout="half">
-                            <select class="form-dropdown" id="input_14" name="q14_positionApplied" style="width:310px" data-component="dropdown">
+                    <li class="form-line1" data-type="control_dropdown" id="position">
+                        <label class="position-app" for="input_14"><b>Position Applied</b></label>
+                        <div class="form-input-wide">
+                            <select class="form-dropdown" name="q14_positionApplied" style="width:310px" data-component="dropdown">
                                 <option value=""> Please Select </option>
-                                <option value="Marketing Specialist"> Chef </option>
-                                <option value="Sales Manager"> Pizzaiolo </option>
-                                <option value="Product Lead"> Dishwasher </option>
-                                <option value="Developer"> Register </option>
-                                <option value="Developer"> Server </option>
-                                <option value="Developer"> Janitor </option>
-                                <option value="Developer"> Box-folder </option>
-                                <option value="Developer"> Co-Owner </option>
+                                <option value="Chef"> Chef </option>
+                                <option value="Pizzaiolo"> Pizzaiolo </option>
+                                <option value="Dishwasher"> Dishwasher </option>
+                                <option value="Register"> Register </option>
+                                <option value="Server"> Server </option>
+                                <option value="Janitor"> Janitor </option>
+                                <option value="Box-folder"> Box-folder </option>
+                                <option value="Co-Owner"> Co-Owner </option>
                             </select>
                         </div>
                     </li>
 
                     <!-- "References" -->
-                    <li class="form-line" data-type="control_text" id="id_305">
-                        <div id="cid_305" class="form-input-wide">
-                            <div id="text_305" class="form-html" data-component="text">
+                    <li class="form-line1" data-type="control_text">
+                        <div class="form-input-wide">
+                            <div class="form-html" data-component="text">
                                 <p><span style="font-size: 18pt;"><strong>References</strong></span></p>
                                 <p>&nbsp;Please list two (2) references that are familiar with your work life.</p>
                             </div>
@@ -117,66 +120,57 @@
                     </li>
 
                     <!-- reference 1 -->
-                    <li class="form-line" data-type="control_text" id="id_306">
-                        <div id="cid_306" class="form-input-wide">
-                            <div id="text_306" class="form-html" data-component="text">
-                                <p><strong>Reference 1</strong></p>
+                    <li class="form-line2" data-type="control_text" id="id_306">
+                        <div class="form-input-wide">
+                            <div class="form-html" data-component="text">
+                                <h3>Reference 1</h3>
                             </div>
                         </div>
                     </li>
 
                     <!-- reference name info -->
-                    <li class="form-line jf-required" data-type="control_fullname" id="id_274">
-                        <label class="form-label form-label-left form-label-auto" id="label_274" for="first_274">Name:<span class="form-required">*</span></label>
-                        <div id="cid_274" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
-                                    <input type="text" id="first_274" name="q274_name274[first]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_274 given-name" size="10" value="" data-component="first" aria-labelledby="label_274 sublabel_274_first" required="">
-                                    <label class="form-sub-label" for="first_274" id="sublabel_274_first" style="min-height:13px" aria-hidden="false"> First Name </label>
-                                </span>
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
-                                    <input type="text" id="last_274" name="q274_name274[last]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_274 family-name" size="15" value="" data-component="last" aria-labelledby="label_274 sublabel_274_last" required="">
-                                    <label class="form-sub-label" for="last_274" id="sublabel_274_last" style="min-height:13px" aria-hidden="false"> Last Name </label>
-                                </span>
-                            </div>
+                    <li class="form-line3">
+                        <div class="name-div">
+                            <label class="form-label">Name:</label>
+                        </div>
+                        <div class="form-input">
+                            <span class="form-sub-label-container">
+                                <input type="text" class="form-textbox" size="10">
+                                <label class="form-sub-label" style="min-height:13px"> First Name </label>
+                            </span>
+                            <span class="form-sub-label-container">
+                                <input type="text" class="form-textbox">
+                                <label class="form-sub-label" style="min-height:13px"> Last Name </label>
+                            </span>
                         </div>
                     </li>
 
                     <!-- reference phone number -->
-                    <li class="form-line jf-required" data-type="control_phone" id="id_276">
-                        <label class="form-label form-label-left form-label-auto" id="label_276" for="input_276_area">Phone Number<span class="form-required">*</span></label>
-                        <div id="cid_276" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="areaCode">
-                                    <input type="tel" id="input_276_area" name="q276_phoneNumber276[area]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_276 tel-area-code" value="" data-component="areaCode" aria-labelledby="label_276 sublabel_276_area" required="">
-                                    <span class="phone-separate" aria-hidden="true">&nbsp;-</span>
-                                    <label class="form-sub-label" for="input_276_area" id="sublabel_276_area" style="min-height:13px" aria-hidden="false"> Area Code </label>
+                    <li class="form-line4">
+                        <label class="form-label">Phone Number</label>
+                        <div class="form-input">
+                            <div>
+                                <span class="form-sub-label-container">
+                                    <input type="tel" class="form-textbox">
+                                    <label class="form-sub-label" style="min-height:13px"> Area Code </label>
                                 </span>
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="phone">
-                                    <input type="tel" id="input_276_phone" name="q276_phoneNumber276[phone]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_276 tel-local" value="" data-component="phone" aria-labelledby="label_276 sublabel_276_phone" required="">
-                                    <label class="form-sub-label" for="input_276_phone" id="sublabel_276_phone" style="min-height:13px" aria-hidden="false"> Phone Number </label>
+                                <span class="form-sub-label-container">
+                                    <input type="tel" class="form-textbox">
+                                    <label class="form-sub-label"> Phone Number </label>
                                 </span>
                             </div>
                         </div>
                     </li>
 
                     <!-- reference years known -->
-                    <li class="form-line jf-required" data-type="control_spinner" id="id_76">
-                        <label class="form-label form-label-left form-label-auto" id="label_76" for="input_76">Years Known:<span class="form-required">*</span></label>
-                        <div id="cid_76" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <div tabindex="">
+                    <li class="form-line5">
+                        <label class="form-label">Years Known:<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div>
+                                <div>
                                     <div class="form-spinner" style="width: 180px;">
                                         <div class="form-spinner-input-td">
-                                            <input type="number" id="input_76" name="q76_yearsKnown76" data-type="input-spinner" class="form-spinner-input form-textbox validate[required]" data-spinnermin="1" data-spinnermax="100" data-defaultvalue="1" value="1" data-component="spinner" aria-labelledby="label_76" required="" size="5" autocomplete="off">
-                                        </div>
-                                        <div class="form-spinner-button-container">
-                                            <div class="form-spinner-button form-spinner-up" style="cursor: default;">
-                                                <img class="form-spinner-image form-spinner-up-image" src="//cdn.jotfor.ms/assets/img/builder/flat_arrow.svg" alt="up arrow">
-                                            </div>
-                                            <div class="form-spinner-button form-spinner-down" style="cursor: default;">
-                                                <img class="form-spinner-image form-spinner-down-image" src="//cdn.jotfor.ms/assets/img/builder/flat_arrow.svg" alt="down arrow">
-                                            </div>
+                                            <input type="number" class="form-spinner-input" data-spinnermin="1" data-spinnermax="100" data-defaultvalue="1" value="1" data-component="spinner" aria-labelledby="label_76" required="" size="5" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -185,48 +179,48 @@
                     </li>
 
                     <!-- reference address -->
-                    <li class="form-line jf-required" data-type="control_address" id="id_281">
-                        <label class="form-label form-label-left form-label-auto" id="label_281" for="input_281undefined">Address<span class="form-required">*</span></label>
-                        <div id="cid_281" class="form-input jf-required">
-                            <div summary="" class="form-address-table jsTest-addressField">
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                    <li class="form-line">
+                        <label class="form-label">Address<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div class="form-address-table">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_addr_line1" name="q281_address281[addr_line1]" class="form-textbox validate[required] form-address-line" data-defaultvalue="" autocomplete="section-input_281 address-line1" value="" data-component="address_line_1" aria-labelledby="label_281 sublabel_281_addr_line1">
-                                            <label class="form-sub-label" for="input_281_addr_line1" id="sublabel_281_addr_line1" style="min-height:13px" aria-hidden="false"> Street Address </label>
+                                            <input class="form-textbox">
+                                            <label class="form-sub-label"> Street Address </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_addr_line2" name="q281_address281[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autocomplete="section-input_281 off" value="" data-component="address_line_2" aria-labelledby="label_281 sublabel_281_addr_line2">
-                                            <label class="form-sub-label" for="input_281_addr_line2" id="sublabel_281_addr_line2" style="min-height:13px" aria-hidden="false"> Street Address Line 2 </label>
+                                            <input type="text" class="form-textbox">
+                                            <label class="form-sub-label"> Street Address Line 2 </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-city-line jsTest-address-lineField ">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_city" name="q281_address281[city]" class="form-textbox validate[required] form-address-city" data-defaultvalue="" autocomplete="section-input_281 address-level2" value="" data-component="city" aria-labelledby="label_281 sublabel_281_city">
-                                            <label class="form-sub-label" for="input_281_city" id="sublabel_281_city" style="min-height:13px" aria-hidden="false"> City </label>
+                                            <input type="text" class="form-textbox" >
+                                            <label class="form-sub-label"> City </label>
                                         </span>
                                     </span>
-                                    <span class="form-address-line form-address-state-line jsTest-address-lineField ">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_state" name="q281_address281[state]" class="form-textbox validate[required] form-address-state" data-defaultvalue="" autocomplete="section-input_281 address-level1" value="" data-component="state" aria-labelledby="label_281 sublabel_281_state">
-                                            <label class="form-sub-label" for="input_281_state" id="sublabel_281_state" style="min-height:13px" aria-hidden="false"> State / Province </label>
+                                            <input type="text" class="form-textbox">
+                                            <label class="form-sub-label"> State / Province </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-zip-line jsTest-address-lineField ">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_postal" name="q281_address281[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autocomplete="section-input_281 postal-code" value="" data-component="zip" aria-labelledby="label_281 sublabel_281_postal">
-                                            <label class="form-sub-label" for="input_281_postal" id="sublabel_281_postal" style="min-height:13px" aria-hidden="false"> Postal / Zip Code </label>
+                                            <input type="text" class="form-textbox" >
+                                            <label class="form-sub-label"> Postal / Zip Code </label>
                                         </span>
                                     </span>
-                                    <span class="form-address-line form-address-country-line jsTest-address-lineField ">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
                                             <select class="form-dropdown validate[required] form-address-country noTranslate" name="q281_address281[country]" id="input_281_country" data-component="country" required="" aria-labelledby="label_281 sublabel_281_country" autocomplete="section-input_281 country">
                                                 <option value=""> Please Select </option>
@@ -485,76 +479,67 @@
                     </li>
 
                     <!-- "References" -->
-                    <li class="form-line" data-type="control_text" id="id_305">
-                        <div id="cid_305" class="form-input-wide">
-                            <div id="text_305" class="form-html" data-component="text">
+                    <li class="form-line" data-type="control_text">
+                        <div class="form-input-wide">
+                            <div class="form-html" data-component="text">
                                 <p><span style="font-size: 18pt;"><strong>References</strong></span></p>
                                 <p>&nbsp;Please list two (2) references that are familiar with your work life.</p>
                             </div>
                         </div>
                     </li>
 
-                    <!-- reference 2 -->
+                    <!-- reference 1 -->
                     <li class="form-line" data-type="control_text" id="id_306">
-                        <div id="cid_306" class="form-input-wide">
-                            <div id="text_306" class="form-html" data-component="text">
-                                <p><strong>Reference 2</strong></p>
+                        <div class="form-input-wide">
+                            <div class="form-html" data-component="text">
+                                <h3>Reference 2</h3>
                             </div>
                         </div>
                     </li>
 
                     <!-- reference name info -->
-                    <li class="form-line jf-required" data-type="control_fullname" id="id_274">
-                        <label class="form-label form-label-left form-label-auto" id="label_274" for="first_274">Name:<span class="form-required">*</span></label>
-                        <div id="cid_274" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
-                                    <input type="text" id="first_274" name="q274_name274[first]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_274 given-name" size="10" value="" data-component="first" aria-labelledby="label_274 sublabel_274_first" required="">
-                                    <label class="form-sub-label" for="first_274" id="sublabel_274_first" style="min-height:13px" aria-hidden="false"> First Name </label>
+                    <li class="form-line">
+                        <label class="form-label">Name:<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div>
+                                <span class="form-sub-label-container">
+                                    <input type="text" class="form-textbox" size="10">
+                                    <label class="form-sub-label" style="min-height:13px"> First Name </label>
                                 </span>
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
-                                    <input type="text" id="last_274" name="q274_name274[last]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_274 family-name" size="15" value="" data-component="last" aria-labelledby="label_274 sublabel_274_last" required="">
-                                    <label class="form-sub-label" for="last_274" id="sublabel_274_last" style="min-height:13px" aria-hidden="false"> Last Name </label>
+                                <span class="form-sub-label-container">
+                                    <input type="text" class="form-textbox">
+                                    <label class="form-sub-label" style="min-height:13px"> Last Name </label>
                                 </span>
                             </div>
                         </div>
                     </li>
 
                     <!-- reference phone number -->
-                    <li class="form-line jf-required" data-type="control_phone" id="id_276">
-                        <label class="form-label form-label-left form-label-auto" id="label_276" for="input_276_area">Phone Number<span class="form-required">*</span></label>
-                        <div id="cid_276" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="areaCode">
-                                    <input type="tel" id="input_276_area" name="q276_phoneNumber276[area]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_276 tel-area-code" value="" data-component="areaCode" aria-labelledby="label_276 sublabel_276_area" required="">
-                                    <span class="phone-separate" aria-hidden="true">&nbsp;-</span>
-                                    <label class="form-sub-label" for="input_276_area" id="sublabel_276_area" style="min-height:13px" aria-hidden="false"> Area Code </label>
+                    <li class="form-line">
+                        <label class="form-label">Phone Number<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div>
+                                <span class="form-sub-label-container">
+                                    <input type="tel" class="form-textbox">
+                                    <label class="form-sub-label" style="min-height:13px"> Area Code </label>
                                 </span>
-                                <span class="form-sub-label-container" style="vertical-align:top" data-input-type="phone">
-                                    <input type="tel" id="input_276_phone" name="q276_phoneNumber276[phone]" class="form-textbox validate[required]" data-defaultvalue="" autocomplete="section-input_276 tel-local" value="" data-component="phone" aria-labelledby="label_276 sublabel_276_phone" required="">
-                                    <label class="form-sub-label" for="input_276_phone" id="sublabel_276_phone" style="min-height:13px" aria-hidden="false"> Phone Number </label>
+                                <span class="form-sub-label-container">
+                                    <input type="tel" class="form-textbox">
+                                    <label class="form-sub-label"> Phone Number </label>
                                 </span>
                             </div>
                         </div>
                     </li>
 
                     <!-- reference years known -->
-                    <li class="form-line jf-required" data-type="control_spinner" id="id_76">
-                        <label class="form-label form-label-left form-label-auto" id="label_76" for="input_76">Years Known:<span class="form-required">*</span></label>
-                        <div id="cid_76" class="form-input jf-required">
-                            <div data-wrapper-react="true">
-                                <div tabindex="">
+                    <li class="form-line">
+                        <label class="form-label">Years Known:<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div>
+                                <div>
                                     <div class="form-spinner" style="width: 180px;">
                                         <div class="form-spinner-input-td">
-                                            <input type="number" id="input_76" name="q76_yearsKnown76" data-type="input-spinner" class="form-spinner-input form-textbox validate[required]" data-spinnermin="1" data-spinnermax="100" data-defaultvalue="1" value="1" data-component="spinner" aria-labelledby="label_76" required="" size="5" autocomplete="off">
-                                        </div>
-                                        <div class="form-spinner-button-container">
-                                            <div class="form-spinner-button form-spinner-up" style="cursor: default;">
-                                                <img class="form-spinner-image form-spinner-up-image" src="//cdn.jotfor.ms/assets/img/builder/flat_arrow.svg" alt="up arrow">
-                                            </div>
-                                            <div class="form-spinner-button form-spinner-down" style="cursor: default;">
-                                                <img class="form-spinner-image form-spinner-down-image" src="//cdn.jotfor.ms/assets/img/builder/flat_arrow.svg" alt="down arrow">
-                                            </div>
+                                            <input type="number" class="form-spinner-input" data-spinnermin="1" data-spinnermax="100" data-defaultvalue="1" value="1" data-component="spinner" aria-labelledby="label_76" required="" size="5" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -563,48 +548,48 @@
                     </li>
 
                     <!-- reference address -->
-                    <li class="form-line jf-required" data-type="control_address" id="id_281">
-                        <label class="form-label form-label-left form-label-auto" id="label_281" for="input_281undefined">Address<span class="form-required">*</span></label>
-                        <div id="cid_281" class="form-input jf-required">
-                            <div summary="" class="form-address-table jsTest-addressField">
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                    <li class="form-line">
+                        <label class="form-label">Address<span class="form-required">*</span></label>
+                        <div class="form-input">
+                            <div class="form-address-table">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_addr_line1" name="q281_address281[addr_line1]" class="form-textbox validate[required] form-address-line" data-defaultvalue="" autocomplete="section-input_281 address-line1" value="" data-component="address_line_1" aria-labelledby="label_281 sublabel_281_addr_line1">
-                                            <label class="form-sub-label" for="input_281_addr_line1" id="sublabel_281_addr_line1" style="min-height:13px" aria-hidden="false"> Street Address </label>
+                                            <input class="form-textbox">
+                                            <label class="form-sub-label"> Street Address </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_addr_line2" name="q281_address281[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autocomplete="section-input_281 off" value="" data-component="address_line_2" aria-labelledby="label_281 sublabel_281_addr_line2">
-                                            <label class="form-sub-label" for="input_281_addr_line2" id="sublabel_281_addr_line2" style="min-height:13px" aria-hidden="false"> Street Address Line 2 </label>
+                                            <input type="text" class="form-textbox">
+                                            <label class="form-sub-label"> Street Address Line 2 </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-city-line jsTest-address-lineField ">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_city" name="q281_address281[city]" class="form-textbox validate[required] form-address-city" data-defaultvalue="" autocomplete="section-input_281 address-level2" value="" data-component="city" aria-labelledby="label_281 sublabel_281_city">
-                                            <label class="form-sub-label" for="input_281_city" id="sublabel_281_city" style="min-height:13px" aria-hidden="false"> City </label>
+                                            <input type="text" class="form-textbox" >
+                                            <label class="form-sub-label"> City </label>
                                         </span>
                                     </span>
-                                    <span class="form-address-line form-address-state-line jsTest-address-lineField ">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_state" name="q281_address281[state]" class="form-textbox validate[required] form-address-state" data-defaultvalue="" autocomplete="section-input_281 address-level1" value="" data-component="state" aria-labelledby="label_281 sublabel_281_state">
-                                            <label class="form-sub-label" for="input_281_state" id="sublabel_281_state" style="min-height:13px" aria-hidden="false"> State / Province </label>
+                                            <input type="text" class="form-textbox">
+                                            <label class="form-sub-label"> State / Province </label>
                                         </span>
                                     </span>
                                 </div>
-                                <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
-                                    <span class="form-address-line form-address-zip-line jsTest-address-lineField ">
+                                <div class="form-address-line-wrapper">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
-                                            <input type="text" id="input_281_postal" name="q281_address281[postal]" class="form-textbox form-address-postal" data-defaultvalue="" autocomplete="section-input_281 postal-code" value="" data-component="zip" aria-labelledby="label_281 sublabel_281_postal">
-                                            <label class="form-sub-label" for="input_281_postal" id="sublabel_281_postal" style="min-height:13px" aria-hidden="false"> Postal / Zip Code </label>
+                                            <input type="text" class="form-textbox" >
+                                            <label class="form-sub-label"> Postal / Zip Code </label>
                                         </span>
                                     </span>
-                                    <span class="form-address-line form-address-country-line jsTest-address-lineField ">
+                                    <span class="form-address-line">
                                         <span class="form-sub-label-container" style="vertical-align:top">
                                             <select class="form-dropdown validate[required] form-address-country noTranslate" name="q281_address281[country]" id="input_281_country" data-component="country" required="" aria-labelledby="label_281 sublabel_281_country" autocomplete="section-input_281 country">
                                                 <option value=""> Please Select </option>
@@ -862,7 +847,6 @@
                         </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     
