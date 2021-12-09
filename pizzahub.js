@@ -12,12 +12,12 @@ $(document).ready(function() {
                     "sidesSpecial", "sidesspecial-price", "sidesspecial-original-price", 
                     "dessertsSpecial", "dessertsspecial-price", "dessertsspecial-original-price"];
     let valueArray = ["H.U.B Pizza", "84.99", "$99.99",
-                      "Cheesesteak","7.64","$10.99",
-                      "Wings", "7.64","$10.99",
-                      "Handful of Whipped Cream", "8.49", "9.99"];
+                      "Cheesesteak","9.34","$10.99",
+                      "Wings", "7.64","$8.99",
+                      "Handful of Whipped Cream", "8.49", "$9.99"];
 
     for(let i = 0; i < keyArray.length; i++){
-        if(localStorage.getItem("menu") == null || localStorage.getItem("menu") == "undefined"){
+        if(localStorage.getItem(keyArray[i]) == null || localStorage.getItem(keyArray[i]) == "undefined"){
             localStorage.setItem(keyArray[i], valueArray[i]);
         }
     }
@@ -65,6 +65,7 @@ $(document).ready(function() {
     }
 
     refreshButtons();
+
 })
 
 function refreshButtons(){
@@ -145,7 +146,7 @@ function refreshButtons(){
             specialPrice = specialPrice.toFixed(2)
             localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-price", specialPrice)
             localStorage.setItem($(this).parent().parent().parent().parent().attr('id') + "special-original-price", originalPrice)
-            $(this).parent().parent().find(".item-price").text(specialPrice)
+            $(this).parent().parent().find(".item-price").text("$" + specialPrice)
             $(this).parent().parent().find(".item-price").attr("id", "current-special")
             $(this).parent().parent().find(".item-title").attr("id", "current-special-title")
             localStorage.setItem("menu", $("#menu").html());
@@ -177,12 +178,6 @@ function addNewItem(id){
     localStorage.setItem("menu", $("#menu").html());
     $("#menu").html(localStorage.getItem("menu"))
 }
-
-
-
-
-
-
 
 function openCategory(id, items) {
     if($(items).css('display') === 'block') {
@@ -295,12 +290,14 @@ function setUpManagerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "block");
     });
+    $("#apply-tab").css("display", "none");
 }
 
 function setUpCustomerPages() {
     $(".editor-btn").each(function() {
         $(this).css("display", "none");
     });
+    $("#apply-tab").css("display", "flex");
 }
 
 function openCart() {
@@ -308,6 +305,12 @@ function openCart() {
 }
 
 function buildCart(newItem) {
+    if (cartItems.length > 0) {
+        $("#checkout-btn").css("visibility", "visible");
+    }
+    else {
+        $("#checkout-btn").css("visibility", "hidden");
+    }
     let i = 0;
     while (cartItems != ";" && i < cartItems.length) {
         if (cartItems[i] == ":" && i != 0) {
@@ -372,14 +375,62 @@ function buildCart(newItem) {
 
 
 
-function checkout() {
-    let cart = document.getElementById("cart-div");
-    $(cart).fadeOut(500);
-    $("#checkout-btn").delay(500).text("Back to cart");
-    $("#checkout-div").delay(500).slideDown(500);
+function checkout(btnText) {
+    if (btnText == "Checkout") {
+        $("#cart-div").fadeOut(500);
+        $("#checkout-btn").delay(500).text("Back to cart");
+        $("#checkout-div").delay(500).slideDown(500);
+    }
+    else {
+        $("#checkout-div").slideUp(500);
+        $("#checkout-btn").delay(500).text("Checkout");
+        $("#cart-div").delay(500).fadeIn(500);
+    }
+    
+}
 
-
-
+function finishCheckout(paymentType) {
+    let infoComplete = true;
+    let items = localStorage.getItem("cartItems");
+    let numItems = 0;
+    for (let i = 0; i < items.length; i++) {
+        if (items[i] == ";") {
+            numItems++;
+        }
+    }
+    let time = Math.round(total*numItems);
+    let hours = Math.floor(time / 60);
+    let minutes = time % 60;
+    console.log("Time: " + time);
+    console.log("Hours: " + hours);
+    console.log("Minutes: " + minutes);
+    let fields = $(paymentType).find("input");
+    console.log(fields);
+    for (let j = 0; j < fields.length-1; j++) {
+        if (fields[j].value == "" || fields[j].value == null) {
+            infoComplete = false;
+        }
+    }
+    console.log(total);
+    let tip = fields[fields.length-1].value;
+    console.log(tip);
+    total = total + (total * (tip/100.0));
+    total = Number(total.toFixed(2));
+    console.log(total);
+    if (infoComplete) {
+        alert("Thank you for your order. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).");
+        localStorage.setItem("cartItems", "");
+        cartItems = localStorage.getItem("cartItems");
+        localStorage.setItem("totalCost", "0.00");
+        total = Number(localStorage.getItem("totalCost"));
+        buildCart();
+        checkout();
+        window.location.href = "index.html";
+    }
+    else {
+        alert("Please enter the required information.")
+    }
+    
 }
 
 // slider home screen
