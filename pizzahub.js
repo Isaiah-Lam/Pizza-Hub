@@ -291,6 +291,7 @@ function setUpManagerPages() {
         $(this).css("display", "block");
     });
     $("#apply-tab").css("display", "none");
+    $("#cart-tab").css("visibility", "hidden");
 }
 
 function setUpCustomerPages() {
@@ -298,6 +299,7 @@ function setUpCustomerPages() {
         $(this).css("display", "none");
     });
     $("#apply-tab").css("display", "flex");
+    $("#cart-tab").css("visibility", "visible");
 }
 
 function openCart() {
@@ -371,6 +373,7 @@ function buildCart(newItem) {
             i++;
         }
     }
+    localStorage.setItem("cart", $("#cart-container").html());
 }
 
 
@@ -401,24 +404,76 @@ function finishCheckout(paymentType) {
     let time = Math.round(total*numItems);
     let hours = Math.floor(time / 60);
     let minutes = time % 60;
-    console.log("Time: " + time);
-    console.log("Hours: " + hours);
-    console.log("Minutes: " + minutes);
     let fields = $(paymentType).find("input");
-    console.log(fields);
-    for (let j = 0; j < fields.length-1; j++) {
+    let optionalFields = 1;
+    let alertString = "";
+    let customerName;
+    let code;
+    let discount = 0;
+
+    if (paymentType == "#card") {
+        optionalFields = 2;
+    }
+    for (let j = 0; j < fields.length-optionalFields; j++) {
         if (fields[j].value == "" || fields[j].value == null) {
             infoComplete = false;
         }
     }
-    console.log(total);
-    let tip = fields[fields.length-1].value;
-    console.log(tip);
-    total = total + (total * (tip/100.0));
-    total = Number(total.toFixed(2));
-    console.log(total);
+
+    if (paymentType == "#card") {
+        code = $("#coupon-card").val();
+        if (code == null || code == undefined) {
+            code = "";
+        }
+        else if (code.toUpperCase() == "ED5") {
+            total = Number((total*.9).toFixed(2));
+            discount = "10% off with code ED5";
+            alertString = " You recived a discount of " + discount + ".";
+        }
+        else if (code.toUpperCase() == "SAD") {
+            total = Number((total*.75).toFixed(2));
+            discount = "25% off with code SAD";
+            alertString = " You recived a discount of " + discount + ".";
+        }
+        customerName = $("#name-card").val();
+        alertString = "Thank you " + customerName + " for your order." + alertString;
+        let tip = $("#tip").val();
+        total = total + (total * (tip/100.0));
+        total = Number(total.toFixed(2));
+        alertString = alertString + " You tipped " + tip + "%. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
+    }
+    else {
+        code = $("#coupon-cash").val();
+        if (code == null || code == undefined) {
+            code = "";
+        }
+        else if (code.toUpperCase() == "ED5") {
+            total = Number((total*.9).toFixed(2));
+            discount = "10% off with code ED5";
+            alertString = " You recived a discount of " + discount + ".";
+        }
+        else if (code.toUpperCase() == "SAD") {
+            total = Number((total*.75).toFixed(2));
+            discount = "25% off with code SAD";
+            alertString = " You recived a discount of " + discount + ".";
+        }
+        customerName = $("#name-cash").val();
+        alertString = "Thank you " + customerName + " for your order." + alertString + " Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
+    }
+
+    localStorage.setItem("totalCost", total);
+    alertString = alertString + "\n\n Would you like a receipt?";
+
     if (infoComplete) {
-        alert("Thank you for your order. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).");
+        let wantReceipt = confirm(alertString);
+        if (wantReceipt) {
+            let invoice = this.document.getElementById("cart-container")
+            window.print(invoice);
+        }
+        let currentUser = localStorage.getItem("currentUser");
+        if (currentUser != null && currentUser != undefined && currentUser != "") {
+            localStorage.setItem(currentUser + "-previous-order", $("#cart-container").html());
+        }
         localStorage.setItem("cartItems", "");
         cartItems = localStorage.getItem("cartItems");
         localStorage.setItem("totalCost", "0.00");
@@ -471,12 +526,21 @@ function paymentClick(select, deselect) {
     $(select + "-label").addClass("selected");
 }
 
-// application
+function orderPrevious() {
+    let currentUser = localStorage.getItem("currentUser");
+    if (currentUser == null || currentUser == undefined || currentUser == "") {
+        alert("Log in to use this feature");
+    }
+    else {
+        let previousOrder = localStorage.getItem(currentUser + "-previous-order");
+        console.log(previousOrder);
+        if (previousOrder == null || previousOrder == undefined || previousOrder == "") {
+            alert("No previous order found for this account.");
+        }
+        else {
+            $("#cart-container").html(localStorage.getItem(currentUser+"-previous-order"));
+            alert("Items added to your cart!");
+        }
+    }
 
-// $(function(){
-//     $('#gMonth2').change(function(){
-//       var month = $(this).val();
-//       $('#gMonth1').val(month);
-//     });
-// });
-
+}

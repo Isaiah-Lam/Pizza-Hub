@@ -24,7 +24,7 @@ body {
     left: 0;
     right: 0;
     margin: auto;
-    color: orange;
+    color: #ffa31a;
     background-color: #1b1b1b;
     padding: 5px 20px;
 }
@@ -53,7 +53,7 @@ h6{
     justify-content: space-between;
     align-items: center;
     margin: 1% 0;
-    background-color: orange;
+    background-color: #ffa31a;
     border: 1px solid black;
     height: 20%;
     clear: both;
@@ -93,6 +93,7 @@ h6{
 
 .card-input {
     height: 30px;
+    width: 150px;
 }
 
 #checkout-labels {
@@ -102,7 +103,7 @@ h6{
 }
 
 .checkout-label {
-    border: 1px solid orange;
+    border: 1px solid #ffa31a;
     padding: 5px;
     background-color: black;
     color: white;
@@ -115,8 +116,19 @@ h6{
 
 .payment-type {
     opacity: 0;
-    height: fit-content;
-    width: fit-content;
+    height: 70%;
+    width: 40%;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .selected {
@@ -127,6 +139,25 @@ h6{
 .finish-checkout {
     margin: 10px auto;
     display: block;
+}
+
+#order-again {
+    float: right;
+    right: 10px;
+    top: 60px;
+    position: fixed;
+    display: inline;
+    width: 125px;
+    color: white;
+    background-color: black;
+    border: 1px solid #ffa31a;
+    padding: 5px;
+}
+
+#order-again:hover {
+    background-color: #ffa31a;
+    color: white;
+    border-color: black;
 }
 
 /* this section is for the login */
