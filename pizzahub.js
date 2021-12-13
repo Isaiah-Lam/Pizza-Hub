@@ -468,8 +468,9 @@ function finishCheckout(paymentType) {
 
     if (infoComplete) {
         let wantReceipt = confirm(alertString);
-        if (wantReceipt) {
-            let invoice = this.document.getElementById("cart-container")
+        if (wantReceipt == true) {
+            let invoice = document.getElementById("cart-container");
+            console.log("working");
             window.print(invoice);
         }
         let currentUser = localStorage.getItem("currentUser");
@@ -480,9 +481,11 @@ function finishCheckout(paymentType) {
         cartItems = localStorage.getItem("cartItems");
         localStorage.setItem("totalCost", "0.00");
         total = Number(localStorage.getItem("totalCost"));
+        $("#cart-div").empty();
+        $("#price").text("Total: $0.00");
         buildCart();
         checkout();
-        window.location.href = "index.html";
+        // window.location.href = "index.html";
     }
     else {
         alert("Please enter the required information.")

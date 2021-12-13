@@ -693,7 +693,7 @@ input[type='submit'], label {
 }
 
 .contact-details, .contact-location {
-    height: 57%;
+    height: 75%;
     width: 20%;
     max-width: 500px;
 }
@@ -750,6 +750,7 @@ iframe {
     background-color: #292929;
     color: white;
     text-align: center;
+    bottom: 0px;
 }
 
 .facebook {
