@@ -34,9 +34,13 @@
                 </div>
                 <div id="checkout-flex">
                     <div id="cash" class="payment-type">
-                        <div class="field-container">
+                        <div class="field-container" style="width: fit-content;">
                             <label class="card-info-label" for="name-cash">Name</label>
                             <input class="card-input" id="name-cash" type="text">
+                        </div>
+                        <div class="field-container">
+                            <label class="card-info-label" for="coupon-cash">Coupon Code</label>
+                            <input class="card-input" id="coupon-cash" type="text" maxlength="3" placeholder="(optional)">
                         </div>
                         <p><em>*No change given. Extra Money will be kept as tips.*</em></p>
                         <button type="button" id="place-order-cash" class="finish-checkout cart-btn" onclick="finishCheckout('#cash')">Place Order</button>
@@ -45,26 +49,30 @@
                         <div class="form">
                             <div class="field-container">
                                 <label class="card-info-label" for="name-card">Name</label>
-                                <input class="card-input" id="name-card" type="text">
+                                <input class="card-input" id="name-card" type="text" placeholder="(required)">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="cardnumber">Card Number</label>
-                                <input class="card-input" id="cardnumber" maxlength="16" type="text">
+                                <input class="card-input" id="cardnumber" maxlength="16" type="text" placeholder="(required)">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="expirationdate">Expiration (mm/yy)</label>
-                                <input class="card-input" id="expirationdate" maxlength="5" type="text">
+                                <input class="card-input" id="expirationdate" maxlength="5" type="text" placeholder="(required)">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="securitycode">Security Code</label>
-                                <input class="card-input" id="securitycode" maxlength="3" type="text">
+                                <input class="card-input" id="securitycode" maxlength="3" type="text" placeholder="(required)">
                             </div>
                             <div class="field-container">
                                 <label class="card-info-label" for="tip">Tip %</label>
-                                <input class="card-input" id="tip" type="number">
+                                <input class="card-input" id="tip" type="number" min="10" placeholder="(required)">
                             </div>
-                            <button type="button" id="place-order-card" class="finish-checkout cart-btn" onclick="finishCheckout('#card')">Place Order</button>
+                            <div class="field-container">
+                                <label class="card-info-label" for="coupon-card">Coupon Code</label>
+                                <input class="card-input" id="coupon-card" type="text" maxlength="3" placeholder="(optional)">
+                            </div>
                         </div>
+                        <button type="button" id="place-order-card" class="finish-checkout cart-btn" onclick="finishCheckout('#card')">Place Order</button>
                     </div>
                 </div>
             </div>
@@ -79,9 +87,10 @@
             <a class="active" href="application.html" id="apply-tab">Apply</a>
             <a class="active" href="log-in.html" id="sign-in-btn">Sign In</a>
             <a class="active" id="sign-out-btn" onclick="signOut()">Sign Out</a>
-            <button type="button" class="cart-tab active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
+            <button type="button" id="cart-tab" class="cart-tab active" onclick="openCart()"><ion-icon class="cart-icon" name="cart"></ion-icon></button>
         </section>
 
+        <button id="order-again" onclick="orderPrevious()">Want the same thing as last time?</button>
         <div id="menu-title">
             <h1>Our Menu</h1>
         </div> 
