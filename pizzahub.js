@@ -427,11 +427,13 @@ function finishCheckout(paymentType) {
         }
         else if (code.toUpperCase() == "ED5") {
             total = Number((total*.9).toFixed(2));
+            $("#price").text("Total: $" + total);
             discount = "10% off with code ED5";
             alertString = " You recived a discount of " + discount + ".";
         }
         else if (code.toUpperCase() == "SAD") {
             total = Number((total*.75).toFixed(2));
+            $("#price").text("Total: $" + total);
             discount = "25% off with code SAD";
             alertString = " You recived a discount of " + discount + ".";
         }
@@ -466,8 +468,9 @@ function finishCheckout(paymentType) {
 
     if (infoComplete) {
         let wantReceipt = confirm(alertString);
-        if (wantReceipt) {
-            let invoice = this.document.getElementById("cart-container")
+        if (wantReceipt == true) {
+            let invoice = document.getElementById("cart-container");
+            console.log("working");
             window.print(invoice);
         }
         let currentUser = localStorage.getItem("currentUser");
@@ -478,9 +481,11 @@ function finishCheckout(paymentType) {
         cartItems = localStorage.getItem("cartItems");
         localStorage.setItem("totalCost", "0.00");
         total = Number(localStorage.getItem("totalCost"));
+        $("#cart-div").empty();
+        $("#price").text("Total: $0.00");
         buildCart();
         checkout();
-        window.location.href = "index.html";
+        // window.location.href = "index.html";
     }
     else {
         alert("Please enter the required information.")
