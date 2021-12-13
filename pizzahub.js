@@ -427,13 +427,13 @@ function finishCheckout(paymentType) {
         }
         else if (code.toUpperCase() == "ED5") {
             total = Number((total*.9).toFixed(2));
-            $("#price").text("Total: $" + total);
+            $("#price").text("total: $" + total);
             discount = "10% off with code ED5";
             alertString = " You recived a discount of " + discount + ".";
         }
         else if (code.toUpperCase() == "SAD") {
             total = Number((total*.75).toFixed(2));
-            $("#price").text("Total: $" + total);
+            $("#price").text("total: $" + total);
             discount = "25% off with code SAD";
             alertString = " You recived a discount of " + discount + ".";
         }

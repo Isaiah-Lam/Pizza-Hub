@@ -445,10 +445,9 @@ input[type='submit'], label {
 
 /* home page */
 
-/* #manager-special {
+#manager-special {
     margin-top: 5rem;
-    float: left;
-} */
+}
 
 .home-special-title {
     font-family: sans-serif;
