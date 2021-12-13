@@ -47,7 +47,9 @@ h6{
     align-items: center;
     justify-content: space-evenly;
 }
-
+.home-display {
+    display: flex;
+}
 .cart-item {
     display: flex;
     justify-content: space-between;
@@ -246,7 +248,7 @@ h6{
     justify-content: center;
     align-items:center;
     overflow: hidden;
-    border: 1px solid #ffa31a;
+    border: 2px groove #ffa31a;
     background-color: rgba(0,0,0,0.3);
     margin: 10px  auto;
     padding: 10px 50px;
@@ -335,7 +337,6 @@ input[type='submit'], label {
 
 .signup p {
     align-items: center;
-    padding-left: 40%;
     color: white;
 }
 
@@ -444,10 +445,10 @@ input[type='submit'], label {
 
 /* home page */
 
-#manager-special {
+/* #manager-special {
     margin-top: 5rem;
     float: left;
-}
+} */
 
 .home-special-title {
     font-family: sans-serif;
@@ -464,14 +465,12 @@ input[type='submit'], label {
     text-shadow: 5px 5px 5px black;
 }
 
-/* Slideshow container */
-.slideshow-container {
-    max-width: 1000px;
-    width:300px;
-    position: relative;
-    margin: 12rem 12rem 0 0;
-    float: right;
-}
+
+ .slideshow-container {
+    max-width: 300px;
+    margin-top: 15%;
+    margin-left: 5%;
+} 
   
 /* Hide the images by default */
 .mySlides {
@@ -485,7 +484,7 @@ input[type='submit'], label {
 /* Next & previous buttons */
 .prev, .next {
     cursor: pointer;
-    position: absolute;
+    /* position: absolute; */
     top: 93%;
     width: auto;
     margin-top: -22px;
@@ -496,6 +495,11 @@ input[type='submit'], label {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+}
+#arrows-and-slides{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
 }
   
 /* Position the "next button" to the right */
@@ -839,22 +843,20 @@ iframe {
 
 /* application page  */
 
-ul {
-    display: block;
-    list-style-type: none;
-}
-
 .application {
     margin-top: 4rem;
     padding: 1rem;
 }
 
 .container {
+    display: flex;
+    justify-content: center;
     background-color: rgb(165, 165, 165);
     border-radius: 20px;
     padding: 1rem 1rem;
-    border: 2px solid black;
-    width: 60%;
+    border: 4px solid black;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -862,90 +864,225 @@ ul {
     text-align: center;
 }
 
+.container p {
+    padding-bottom: 1rem;
+}
+
+.massive-div {
+    width: 100%;
+}
+
 hr {
     border: 1px solid #f69314;
+}
+
+ul {
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .full-name {
     padding-top: 1rem;
     display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.full-name b {
-    padding-left: 1rem;
+.fname-div {
+   width: 30%;
 }
 
 #fname {
-    margin-left: 1rem;
-    width: 15%;
-    margin-top: 5px;
+    width: 90%;
+    margin: 5px 15px 0 0;
+    height: 1.5rem;
 }
 
 .dob-app {
     display: flex;
-    flex-direction: column;
-    /* float: left; */
-    /* margin: 2rem 0 0 5rem; */
-    width: 33%;
+    justify-content: space-around;
+    margin-top: 2rem;
+    width: 100%;
 }
 
 .dob-app label {
     padding-bottom: 1rem;
 }
 
+.dob-app div {
+    width: 30%;
+    /* margin: 0 10px; */
+}
+
 .dob {
-    align-items: center;
-    padding-bottom: 2.3rem;
+    width: 90%;
+}
+
+#birthday {
+    width: 90%;
+    margin: 5px 15px 0 0;
+    height: 1.5rem;
 }
 
 .email-app {
-    padding-bottom: 2.3rem;
+    width: 90%;
 }
 
 .address-app {
+    width: 100%;
     display: flex;
-    /* float: right; */
-    width: 33%;
-}
-
-.address {
-    margin: 3rem 28rem 0 0;
-    align-items: center;
-}
-
-#street {
-    width: 250%;
-    margin-top: 5px;
-}
-
-#position {
-    clear: both;
-}
-
-.form-line1 {
-    margin: 2rem 38%;
-    padding-top: 1rem;
-    align-items: center;
     justify-content: center;
 }
 
-.form-line3 {
-    display: flex;
+.address {
+    margin: 2rem 0;
+    width: 60%;
 }
 
-.name-div {
-    display: block;
-    width: 40%;
+#street {
+    margin-top: 5px;
+}
+
+.form-line1 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 2rem;
+}
+
+.form-line3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .form-input {
     display: flex;
-    justify-content: flex-end;
-    width: 60%;
+    justify-content: space-evenly;
+    width: 70%;
 }
 
-/* .form-sub-label-container input, .form-sub-label-container label {
+.form-sub-label-container {
+    width: 40%;
+}
+
+.areaCode {
+    width: 20%;
+}
+
+.phoneNumb {
+    width: 60%;
+}
+ 
+.form-textbox {
+    width: 100%;
+}
+
+.form-line4 {
     display: flex;
-    justify-content: flex-end;
-} */
+    justify-content: flex-start;
+    margin: 2rem 0 0 0;
+    width: 70%;
+}
+
+.years-div {
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-start;
+    width: auto;
+}
+
+.form-input2 {
+    display: flex;
+    justify-content: start;
+    flex-shrink: 2;
+    width: 70%;
+}
+
+.form-spinner-input {
+    margin-left: 6.6rem;
+    width: 25%;
+}
+
+.form-line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 13rem;
+}
+
+.form-input1 {
+    display: inline-block;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-left: 9rem;
+}
+
+.form-address-line-wrapper1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cityApp {
+    width: 50%;
+}
+
+.state-prov {
+    width: 50%;
+}
+
+.form-sub-label-container1 {
+    width: 40%;
+}
+
+.submit-btn1 {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.submit-btn1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.app-btn-submit {
+    border-radius: 4px;
+    background-color: #f69314;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 25px;
+    padding: 20px;
+    width: 75%;
+    height: 75px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.app-btn-submit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.app-btn-submit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.app-btn-submit:hover span {
+    padding-right: 25px;
+}
+  
+.app-btn-submit:hover span:after {
+    opacity: 1;
+    right: 0;
+}

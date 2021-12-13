@@ -38,20 +38,20 @@
                 <div id="card" class="payment-type">
                     <div class="form">
                         <div class="field-container">
-                            <label class="card-info-label" for="name">Name On Card</label>
-                            <input class="card-input" id="name" type="text">
+                            <label class="card-info-label label-login" for="name">Name On Card</label>
+                            <input class="card-input input-login" id="name" type="text">
                         </div>
                         <div class="field-container">
-                            <label class="card-info-label" for="cardnumber">Card Number</label>
-                            <input class="card-input" id="cardnumber" maxlength="16" type="text" pattern="[0-9]*" inputmode="numeric">
+                            <label class="card-info-label label-login" for="cardnumber">Card Number</label>
+                            <input class="card-input input-login" id="cardnumber" maxlength="16" type="text" pattern="[0-9]*" inputmode="numeric">
                         </div>
                         <div class="field-container">
-                            <label class="card-info-label" for="expirationdate">Expiration (mm/yy)</label>
-                            <input class="card-input" id="expirationdate" maxlength="5" type="text" pattern="[0-9]*" inputmode="numeric">
+                            <label class="card-info-label label-login" for="expirationdate">Expiration (mm/yy)</label>
+                            <input class="card-input input-login" id="expirationdate" maxlength="5" type="text" pattern="[0-9]*" inputmode="numeric">
                         </div>
                         <div class="field-container">
-                            <label class="card-info-label" for="securitycode">Security Code</label>
-                            <input class="card-input" id="securitycode" maxlength="3" type="text" pattern="[0-9]*" inputmode="numeric">
+                            <label class="card-info-label label-login" for="securitycode">Security Code</label>
+                            <input class="card-input input-login" id="securitycode" maxlength="3" type="text" pattern="[0-9]*" inputmode="numeric">
                         </div>
                         <button type="button" id="place-order-card" class="finish-checkout cart-btn" onclick="finishCheckout('#card')">Place Order</button>
                     </div>
@@ -89,14 +89,14 @@
             <div id="myDiv1" class="login-anotherdiv tabcontent">
                 <form class="login-info">
                     <div class="login-username">
-                        <label for="login-username">Username:</label>
-                        <input type="text" id="login-username" name="username">
+                        <label class="label-login" for="login-username">Username:</label>
+                        <input type="text input-login" id="login-username" name="username">
                     </div>
                     <div class="login-pw">
-                        <label for="login-pass">Password:</label>
-                        <input type="password" id="login-pass" name="password" minlength="8" required>
+                        <label class="label-login" for="login-pass">Password:</label>
+                        <input type="password input-login" id="login-pass" name="password" minlength="8" required>
                     </div>
-                    <input class="btn-login1" type="submit" value="Sign in" onclick="logIn()">
+                    <input class="btn-login1 input-login input-submit" type="submit" value="Sign in" onclick="logIn()">
                 </form>
             </div>
         </section>
@@ -105,22 +105,22 @@
             <div id="myDiv2" class="signup-anotherdiv tabcontent">
                 <form class="signup-info">
                     <div class="signup-name">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
+                        <label class="label-login" for="username">Username:</label>
+                        <input type="text input-login" id="username" name="username" required>
                     </div>
                     <div class="signup-name">
-                        <label for="username">Email:</label>
-                        <input type="text" id="email" name="email" required>
+                        <label class="label-login" for="username">Email:</label>
+                        <input type="text input-login" id="email" name="email" required>
                     </div>
                     <div class="signup-pw">
-                        <label for="pass">Password (8 characters minimum):</label>
-                        <input type="password" id="pass" name="password" minlength="8" required>
+                        <label class="label-login" for="pass">Password (8 characters minimum):</label>
+                        <input type="password input-login" id="pass" name="password" minlength="8" required>
                     </div>
                     <div class="signup-pw">
-                        <label for="confirm-pass">Confirm Password:</label>
-                        <input type="password" id="confirm-pass" name="confirm-password" minlength="8" required>
+                        <label class="label-login" for="confirm-pass">Confirm Password:</label>
+                        <input type="password input-login" id="confirm-pass" name="confirm-password" minlength="8" required>
                     </div>
-                    <input class="btn-signup1" type="submit" value="Create Account" onclick="signUp()">
+                    <input class="btn-signup1 input-login input-submit" type="submit" value="Create Account" onclick="signUp()">
                     <p>Welcome!</p>
                 </form>
             </div>
