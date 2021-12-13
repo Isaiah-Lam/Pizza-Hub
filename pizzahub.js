@@ -1,6 +1,4 @@
 
-// localStorage.clear();
-
 var cartItems;
 var total;
 
@@ -319,6 +317,7 @@ function buildCart(newItem) {
             var itemDiv = document.createElement("div");
             itemDiv.classList.add("cart-item");
             let name = document.createElement("h6");
+            name.classList.add("cart-item-name");
             name.innerHTML = cartItems.substring(0,i);
             $(name).css("width", "fit-content");
             itemDiv.append(name);
@@ -329,6 +328,7 @@ function buildCart(newItem) {
         else if (cartItems[i] == ";" && i != 0) {
 
             let price = document.createElement("h5");
+            price.classList.add("cart-item-price");
             price.innerHTML = cartItems.substring(0,i);
             $(price).css("width", "fit-content");
             itemDiv.append(price);
@@ -420,6 +420,12 @@ function finishCheckout(paymentType) {
         }
     }
 
+    let itemsInCart = $("#cart-div").find(".cart-item-name");
+    let itemArray = [];
+    for (let i = 0; i < itemsInCart.length; i++) {
+        itemArray.push(itemsInCart[i].innerHTML);
+    }
+
     if (paymentType == "#card") {
         code = $("#coupon-card").val();
         if (code == null || code == undefined) {
@@ -460,19 +466,13 @@ function finishCheckout(paymentType) {
             alertString = " You recived a discount of " + discount + ".";
         }
         customerName = $("#name-cash").val();
-        alertString = "Thank you " + customerName + " for your order." + alertString + " Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
+        alertString = "Thank you " + customerName + " for your order." + alertString + " You ordered: " + itemArray.join(", ") + ". Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
     }
 
     localStorage.setItem("totalCost", total);
-    alertString = alertString + "\n\n Would you like a receipt?";
 
     if (infoComplete) {
-        let wantReceipt = confirm(alertString);
-        if (wantReceipt == true) {
-            let invoice = document.getElementById("cart-container");
-            console.log("working");
-            window.print(invoice);
-        }
+        window.alert(alertString);
         let currentUser = localStorage.getItem("currentUser");
         if (currentUser != null && currentUser != undefined && currentUser != "") {
             localStorage.setItem(currentUser + "-previous-order", $("#cart-container").html());
@@ -485,7 +485,7 @@ function finishCheckout(paymentType) {
         $("#price").text("Total: $0.00");
         buildCart();
         checkout();
-        // window.location.href = "index.html";
+        window.location.href = "index.html";
     }
     else {
         alert("Please enter the required information.")
