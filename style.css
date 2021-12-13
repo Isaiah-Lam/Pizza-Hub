@@ -13,6 +13,7 @@ body {
     background-size: cover;
     background-position: fixed;
     background-repeat: no-repeat;
+    
 }
 
 #cart-container {
@@ -49,6 +50,7 @@ h6{
 }
 .home-display {
     display: flex;
+    align-items: center;
 }
 .cart-item {
     display: flex;
@@ -268,7 +270,7 @@ h6{
 .login-and-signup {
     display: flex;
     justify-content: center;
-    height: 60vh;
+    height: 74.4vh;
     margin-bottom: 3.7rem;
 }
 
@@ -357,6 +359,7 @@ input[type='submit'], label {
     width: 60%;
     margin: -25px auto 60px auto;
     color: #292929;
+    height: 80.1vh
 }
 
 .menu-category {
@@ -455,6 +458,9 @@ input[type='submit'], label {
     margin-bottom: -105px;
     text-shadow: 10px 5px 5px black;
     color: rgb(95, 95, 95);
+}
+#special-container{
+    margin-top: 8%;
 }
 .home-title {
     font-family: sans-serif;
