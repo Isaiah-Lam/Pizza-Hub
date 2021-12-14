@@ -13,7 +13,7 @@ body {
     background-size: cover;
     background-position: fixed;
     background-repeat: no-repeat;
-    
+    min-height: 100%;
 }
 
 #cart-container {
@@ -359,7 +359,7 @@ input[type='submit'], label {
     width: 60%;
     margin: -25px auto 60px auto;
     color: #292929;
-    height: 80.1vh
+
 }
 
 .menu-category {
@@ -756,7 +756,8 @@ iframe {
     background-color: #292929;
     color: white;
     text-align: center;
-    bottom: 0px;
+    position: absolute;
+    width: 100%;
 }
 
 .facebook {
