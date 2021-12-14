@@ -259,7 +259,7 @@ function signUp() {
     else {
         localStorage.setItem(username, password);
         localStorage.setItem("currentUser", username);
-        window.location.href = "index.html";
+        window.location.href = 'index.html';
     }
 }
 
@@ -268,11 +268,11 @@ function logIn() {
     let password = $("#login-pass").val() + "";
     if (username == "Manager" && password == "password") {
         localStorage.setItem("currentUser", "Manager");
-        window.location.href = "index.html";
+        window.location.href = 'index.html';
     }
     else if (localStorage.getItem(username) == password) {
         localStorage.setItem("currentUser", username);
-        window.location.href = "index.html";
+        window.location.href = 'index.html';
     }
     else {
         alert("Incorrect username or password");
@@ -281,7 +281,7 @@ function logIn() {
 
 function signOut() {
     localStorage.setItem("currentUser", "");
-    window.location.href = "index.html";
+    window.location.href = 'index.html';
 }
 
 function setUpManagerPages() {
@@ -290,6 +290,7 @@ function setUpManagerPages() {
     });
     $("#apply-tab").css("display", "none");
     $("#cart-tab").css("visibility", "hidden");
+    $(".add-cart").css("display", "none");
 }
 
 function setUpCustomerPages() {
@@ -298,6 +299,7 @@ function setUpCustomerPages() {
     });
     $("#apply-tab").css("display", "flex");
     $("#cart-tab").css("visibility", "visible");
+    $(".add-cart").css("display", "block");
 }
 
 function openCart() {
@@ -435,20 +437,20 @@ function finishCheckout(paymentType) {
             total = Number((total*.9).toFixed(2));
             $("#price").text("total: $" + total);
             discount = "10% off with code ED5";
-            alertString = " You recived a discount of " + discount + ".";
+            alertString = " You received a discount of " + discount + ".";
         }
         else if (code.toUpperCase() == "SAD") {
             total = Number((total*.75).toFixed(2));
             $("#price").text("total: $" + total);
             discount = "25% off with code SAD";
-            alertString = " You recived a discount of " + discount + ".";
+            alertString = " You received a discount of " + discount + ".";
         }
         customerName = $("#name-card").val();
         alertString = "Thank you " + customerName + " for your order." + alertString;
         let tip = $("#tip").val();
         total = total + (total * (tip/100.0));
         total = Number(total.toFixed(2));
-        alertString = alertString + " You tipped " + tip + "%. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
+        alertString = alertString + " You ordered: " + itemArray.join(", ") + ". You tipped " + tip + "%. Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
     }
     else {
         code = $("#coupon-cash").val();
@@ -458,12 +460,12 @@ function finishCheckout(paymentType) {
         else if (code.toUpperCase() == "ED5") {
             total = Number((total*.9).toFixed(2));
             discount = "10% off with code ED5";
-            alertString = " You recived a discount of " + discount + ".";
+            alertString = " You received a discount of " + discount + ".";
         }
         else if (code.toUpperCase() == "SAD") {
             total = Number((total*.75).toFixed(2));
             discount = "25% off with code SAD";
-            alertString = " You recived a discount of " + discount + ".";
+            alertString = " You received a discount of " + discount + ".";
         }
         customerName = $("#name-cash").val();
         alertString = "Thank you " + customerName + " for your order." + alertString + " You ordered: " + itemArray.join(", ") + ". Your total is $" + total + ". It will be ready in " + hours + " hour(s) and " + minutes + " minute(s).";
